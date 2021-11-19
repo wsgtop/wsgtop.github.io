@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JS数组和字符串转换JavaScript 允许数组与字符串之间相互转换。其中 Array 方法对象定义了 3 个方法，可以把数组转换为字符串，如表所示。 Array 对象的数组与字符串相互转换方法    数组方法 说明    toString( ) 将数组转换成一个字符串   toLocalString( ) 把数组转换成本地约定的字符串   join( ) 将数组元素连接起来以构建一个字符串">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/JS/JS%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JS数组和字符串转换JavaScript 允许数组与字符串之间相互转换。其中 Array 方法对象定义了 3 个方法，可以把数组转换为字符串，如表所示。 Array 对象的数组与字符串相互转换方法    数组方法 说明    toString( ) 将数组转换成一个字符串   toLocalString( ) 把数组转换成本地约定的字符串   join( ) 将数组元素连接起来以构建一个字符串">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JS/JS%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.117Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="JS数组和字符串转换"><a href="#JS数组和字符串转换" class="headerlink" title="JS数组和字符串转换"></a>JS数组和字符串转换</h1><p>JavaScript 允许数组与字符串之间相互转换。其中 Array 方法对象定义了 3 个方法，可以把数组转换为字符串，如表所示。</p>
+<p>Array 对象的数组与字符串相互转换方法</p>
+<table>
+<thead>
+<tr>
+<th>数组方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>toString( )</td>
+<td>将数组转换成一个字符串</td>
+</tr>
+<tr>
+<td>toLocalString( )</td>
+<td>把数组转换成本地约定的字符串</td>
+</tr>
+<tr>
+<td>join( )</td>
+<td>将数组元素连接起来以构建一个字符串</td>
+</tr>
+</tbody></table>
+<p><strong>示例1</strong></p>
+<p>数组中 <code>toString()</code> 方法能够把每个元素转换为字符串，然后以逗号连接输出显示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [1,2,3,4,5,6,7,8,9,0];  //定义数组</span><br><span class="line">var s = a.toString();  //把数组转换为字符串</span><br><span class="line">console.log(s);  //返回字符串“1,2,3,4,5,6,7,8,9,0”</span><br><span class="line">console.log(typeof s);  //返回字符串string，说明是字符串类型</span><br></pre></td></tr></table></figure>
+<p>当数组用于字符串环境中时，JavaScript 会自动调用 toString() 方法将数组转换成字符串。在某些情况下，需要明确调用这个方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = [1,2,3,4,5,6,7,8,9,0];  //定义数组</span><br><span class="line">var b = [1,2,3,4,5,6,7,8,9,0];  //定义数组</span><br><span class="line">var s = a + b;  //数组连接操作</span><br><span class="line">console.log(s);  //返回“1,2,3,4,5,6,7,8,9,01,2,3,4,5,6,7,8,9,0”</span><br><span class="line">console.log(typeof s);  //返回字符串string，说明是字符串类型</span><br><span class="line">toString() 在把数组转换成字符串时，首先要将数组的每个元素都转换为字符串。当每个元素都被转换为字符串时，才使用逗号进行分隔，以列表的形式输出这些字符串。</span><br><span class="line">var a = [1,[2,3],[4,5]],[6,[7,[8,9],0]]];  //定义多维数组</span><br><span class="line">var s = a.toString();  //把数组转换为字符串</span><br><span class="line">console.log(S);  //返回字符串“1,2,3,4,5,6,7,8,9,0”</span><br></pre></td></tr></table></figure>
+<p>其中数组 a 是一个多维数组，JavaScript 会以迭代的方式调用 toString() 方法把所有数组都转换为字符串。<br><strong>示例2</strong><br>下面使用 <code>toLocaleString()</code> 方法读取数组的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">toLocaleString() 方法与 toString() 方法用法基本相同，主要区别在于 toLocaleString() 方法能够使用用户所在地区特定的分隔符把生成的字符串连接起来，形成一个字符串。</span><br><span class="line">var a = [1,2,3,4,5];  //定义数组</span><br><span class="line">var s = a.toLocaleString();  //把数组转换为本地字符串</span><br><span class="line">console.log(s);  //返回字符串“1,2,3,4,5,6,7,8,9,0”</span><br></pre></td></tr></table></figure>
+<p>在上面示例中，toLocaleString() 方法根据中国的使用习惯，先把数字转换为浮点数之后再执行字符串转换操作。<br><strong>示例3</strong><br>下面使用 <code>join()</code>方法可以把数组转换为字符串。</p>
+<p>join() 方法可以把数组转换为字符串，不过它可以指定分隔符。在调用 join() 方法时，可以传递一个参数作为分隔符来连接每个元素。如果省略参数，默认使用逗号作为分隔符，这时与 toString() 方法转换操作效果相同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = [1,2,3,4,5];  //定义数组</span><br><span class="line">var s = a.join(&quot;==&quot;);  //指定分隔符</span><br><span class="line">console.log(s);  //返回字符串“1==2==3==4==5”</span><br></pre></td></tr></table></figure>
+<p><strong>示例4</strong><br>下面使用 <code>split()</code> 方法把字符串转换为数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">split() 方法是 String 对象方法，与 join() 方法操作正好相反。该方法可以指定两个参数，第 1 个参数为分隔符，指定从哪儿进行分隔的标记；第 2 个参数指定要返回数组的长度。</span><br><span class="line">var s = &quot;1==2== 3==4 ==5&quot;;</span><br><span class="line">var a = s.split(&quot;==&quot;);</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(a.constructor == Array);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/JS/JS%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2.html" data-id="ckw6cu3pu001llsdcdkee1xst" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1. JavaScript 标准内置对象 Array方法Array.form()Array.isArray()Array.of()修改器方法copyWithin()fill()pop()push()reverse()shift()sort()splice()unshift()访问方法concat()includes()join()slice()toString()toLocalString()in">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/1.%20Array.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. JavaScript 标准内置对象 Array方法Array.form()Array.isArray()Array.of()修改器方法copyWithin()fill()pop()push()reverse()shift()sort()splice()unshift()访问方法concat()includes()join()slice()toString()toLocalString()in">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/1.%20Array.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.117Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-JavaScript-标准内置对象-Array"><a href="#1-JavaScript-标准内置对象-Array" class="headerlink" title="1. JavaScript 标准内置对象 Array"></a>1. JavaScript 标准内置对象 Array</h1><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Array-form"><a href="#Array-form" class="headerlink" title="Array.form()"></a>Array.form()</h3><h3 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h3><h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h3><h2 id="修改器方法"><a href="#修改器方法" class="headerlink" title="修改器方法"></a>修改器方法</h2><h3 id="copyWithin"><a href="#copyWithin" class="headerlink" title="copyWithin()"></a>copyWithin()</h3><h3 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h3><h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h3><h3 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h3><h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h3><h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><h3 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h3><h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h3><h2 id="访问方法"><a href="#访问方法" class="headerlink" title="访问方法"></a>访问方法</h2><h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><h3 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h3><h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3><h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><h3 id="toLocalString"><a href="#toLocalString" class="headerlink" title="toLocalString()"></a>toLocalString()</h3><h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a>indexOf()</h3><h3 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf()"></a>lastIndexOf()</h3><h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><h3 id="entries"><a href="#entries" class="headerlink" title="entries()"></a>entries()</h3><h3 id="ever"><a href="#ever" class="headerlink" title="ever()"></a>ever()</h3><h3 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h3><h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><h3 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h3><h3 id="findIndex"><a href="#findIndex" class="headerlink" title="findIndex()"></a>findIndex()</h3><h3 id="keys"><a href="#keys" class="headerlink" title="keys()"></a>keys()</h3><h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h3><h3 id="reduceRight"><a href="#reduceRight" class="headerlink" title="reduceRight()"></a>reduceRight()</h3><h3 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/1.%20Array.html" data-id="ckw6cu3q10021lsdcetlf38kv" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

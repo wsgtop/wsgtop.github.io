@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="MySQL引擎MySQL 的核心就是存储引擎。提示：InnoDB 事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键。MySQL5.5之前的默认存储引擎是MyISAM，5.5之后就改为了InnoDB。  MyISAM 是基于 ISAM 的存储引擎，并对其进行扩展，是在 Web、数据仓储和其他应用环境下最常使用的存储引擎之一。MyISAM 拥有较高的插入、查询速度，但不支持事务。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/MySQL%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E(%E4%B8%80).html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL引擎MySQL 的核心就是存储引擎。提示：InnoDB 事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键。MySQL5.5之前的默认存储引擎是MyISAM，5.5之后就改为了InnoDB。  MyISAM 是基于 ISAM 的存储引擎，并对其进行扩展，是在 Web、数据仓储和其他应用环境下最常使用的存储引擎之一。MyISAM 拥有较高的插入、查询速度，但不支持事务。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.180Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.180Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/MySQL%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E(%E4%B8%80).html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.180Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL引擎"><a href="#MySQL引擎" class="headerlink" title="MySQL引擎"></a>MySQL引擎</h1><p>MySQL 的核心就是存储引擎。<br>提示：InnoDB 事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键。<br>MySQL5.5之前的默认存储引擎是MyISAM，5.5之后就改为了InnoDB。</p>
+<ul>
+<li>MyISAM 是基于 ISAM 的存储引擎，并对其进行扩展，是在 Web、数据仓储和其他应用环境下最常使用的存储引擎之一。MyISAM 拥有较高的插入、查询速度，但不支持事务。</li>
+<li>MEMORY 存储引擎将表中的数据存储到内存中，为查询和引用其他数据提供快速访问。MySQL 中使用该引擎作为临时表，存放查询的中间结果。</li>
+<li>Archive 存储引擎支持高并发的插入操作，但是本身并不是事务安全的。Archive 存储引擎非常适合存储归档数据，如记录日志信息可以使用 Archive 引擎。</li>
+</ul>
+<p><strong>查询版本5.7.26支持如下(显示命令<code>show engines</code>)：</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Engine</th>
+<th>support</th>
+<th>comment</th>
+<th>Transactions</th>
+<th>XA</th>
+<th>savepoints</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>MRG_MYISAM</td>
+<td>YES</td>
+<td>Collection of identical MyISAM tables</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MEMORY</td>
+<td>YES</td>
+<td>Hash based,stored in memory,useful for temporary tables</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BLACKHOLE</td>
+<td>YES</td>
+<td>/dev/null storage engine(anything you write to it disappears)</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MyISAM</td>
+<td>YES</td>
+<td>MyISAM storage engine</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CSV</td>
+<td>YES</td>
+<td>CSV storage engine</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ARCHIVE</td>
+<td>YES</td>
+<td>Archive storage engine</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PERFORMANCE_SCHEMA</td>
+<td>YES</td>
+<td>Performance Schema</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>8</td>
+<td>FEDERATED</td>
+<td>NO</td>
+<td>Federated MySQL storage engine</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>InnoDB</td>
+<td>DEFAULT</td>
+<td>Support stransactions,row-levellocking,and foreignkeys</td>
+<td>YES</td>
+<td>YES</td>
+<td>YES</td>
+</tr>
+</tbody></table>
+<p><strong>如何选择数据库引擎:</strong></p>
+<table>
+<thead>
+<tr>
+<th>业务需要</th>
+<th>优先选择引擎</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>要提供提交、回滚和恢复的事务安全（ACID 兼容）能力，并要求实现并发控制</td>
+<td>InnoDB</td>
+</tr>
+<tr>
+<td>主要是插入和查询记录</td>
+<td>MyISAM</td>
+</tr>
+<tr>
+<td>只是临时存放数据，数据量不大,并且不需要较高的数据安全性</td>
+<td>MEMORY</td>
+</tr>
+<tr>
+<td>只有 INSERT 和 SELECT 操作</td>
+<td>Archive</td>
+</tr>
+</tbody></table>
+<p><strong>引擎特性对比:</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>InnoDB</th>
+<th>MyISAM</th>
+<th>MEMORY</th>
+<th>MEGER</th>
+<th>NDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储限制</td>
+<td>64TB</td>
+<td>有</td>
+<td>有</td>
+<td></td>
+<td>有</td>
+</tr>
+<tr>
+<td>事务安全</td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>锁机制</td>
+<td>行锁（高并发）</td>
+<td>表锁</td>
+<td>表锁</td>
+<td>表锁</td>
+<td>行锁</td>
+</tr>
+<tr>
+<td>B树索引</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>哈希索引</td>
+<td></td>
+<td></td>
+<td>支持</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>支持(5.6之后)</td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>集群索引</td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数据索引</td>
+<td>支持</td>
+<td></td>
+<td>支持</td>
+<td></td>
+<td>支持</td>
+</tr>
+<tr>
+<td>索引缓存</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>数据可压缩</td>
+<td></td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>空间使用</td>
+<td>高</td>
+<td>低</td>
+<td></td>
+<td>低</td>
+<td>低</td>
+</tr>
+<tr>
+<td>内存使用</td>
+<td>高</td>
+<td>低</td>
+<td>中等</td>
+<td>低</td>
+<td>低</td>
+</tr>
+<tr>
+<td>批量插入速度</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>支持外键</td>
+<td>支持</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="1-InnoDB"><a href="#1-InnoDB" class="headerlink" title="1. InnoDB"></a>1. InnoDB</h2><p>事务性数据库首选，支持事务安全，支持行锁定，是默认的数据库引擎<br>特性：<br>1、具有提交、回滚和崩溃恢复能力的事物安全（ACID兼容）存储引擎。<br>2、为处理巨大数据量的最大性能设计。它的CPU效率可能是任何其他基于磁盘的关系型数据库引擎锁不能匹敌的<br>3、完全与MySQL服务器整合，为主内存中缓存数据和索引而维持它自己的缓冲池<br>4、支持外键完整性约束，存储表中的数据时，每张表的存储都按主键顺序存放，如果没有显示在表定义时指定主键，InnoDB会为每一行生成一个6字节的ROWID，并以此作为主键<br>5、用在众多需要高性能的大型数据库站点上</p>
+<p>InnoDB不创建目录，使用InnoDB时，MySQL将在MySQL数据目录下创建一个名为ibdata1的10MB大小的自动扩展数据文件，以及两个名为ib_logfile0和ib_logfile1的5MB大小的日志文件</p>
+<h2 id="2-MyISAM存储引擎"><a href="#2-MyISAM存储引擎" class="headerlink" title="2. MyISAM存储引擎"></a>2. MyISAM存储引擎</h2><p>基于ISAM存储引擎。是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。MyISAM拥有较高的插入、查询速度，但不支持事务。<br>特性：<br>1、大文件（达到63位文件长度）在支持大文件的文件系统和操作系统上被支持<br>2、当把删除和更新及插入操作混合使用的时候，动态尺寸的行产生更少碎片。这要通过合并相邻被删除的块，以及若下一个块被删除，就扩展到下一块自动完成<br>3、每个MyISAM表最大索引数是64，这可以通过重新编译来改变。每个索引最大的列数是16<br>4、最大的键长度是1000字节，这也可以通过编译来改变，对于键长度超过250字节的情况，一个超过1024字节的键将被用上<br>5、BLOB和TEXT列可以被索引<br>6、NULL被允许在索引的列中，这个值占每个键的0~1个字节<br>7、所有数字键值以高字节优先被存储以允许一个更高的索引压缩<br>8、每个MyISAM类型的表都有一个AUTO_INCREMENT的内部列，当INSERT和UPDATE操作的时候该列被更新，同时AUTO_INCREMENT列将被刷新。所以说，MyISAM类型表的AUTO_INCREMENT列更新比InnoDB类型的AUTO_INCREMENT更快<br>9、可以把数据文件和索引文件放在不同目录<br>10、每个字符列可以有不同的字符集<br>11、有VARCHAR的表可以固定或动态记录长度<br>12、VARCHAR和CHAR列可以多达64KB</p>
+<p>使用MyISAM引擎创建数据库，将产生3个文件。文件的名字以表名字开始，扩展名之处文件类型：frm文件存储表定义、数据文件的扩展名为.MYD（MYData）、索引文件的扩展名时.MYI（MYIndex）</p>
+<h2 id="3-MEMORY存储引擎"><a href="#3-MEMORY存储引擎" class="headerlink" title="3. MEMORY存储引擎"></a>3. MEMORY存储引擎</h2><p>将表中的数据存储到内存中，未查询和引用其他表数据提供快速访问。<br>特性：<br>1、MEMORY表的每个表可以有多达32个索引，每个索引16列，以及500字节的最大键长度<br>2、MEMORY存储引擎执行HASH和BTREE缩影<br>3、可以在一个MEMORY表中有非唯一键值<br>4、MEMORY表使用一个固定的记录长度格式<br>5、MEMORY不支持BLOB或TEXT列<br>6、MEMORY支持AUTO_INCREMENT列和对可包含NULL值的列的索引<br>7、MEMORY表在所由客户端之间共享（就像其他任何非TEMPORARY表）<br>8、MEMORY表内存被存储在内存中，内存是MEMORY表和服务器在查询处理时的空闲中，创建的内部表共享<br>9、当不再需要MEMORY表的内容时，要释放被MEMORY表使用的内存，应该执行DELETE FROM或TRUNCATE TABLE，或者删除整个表（使用DROP TABLE）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/MySQL%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E(%E4%B8%80).html" data-id="ckw6cu3qs004zlsdchun9b51f" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

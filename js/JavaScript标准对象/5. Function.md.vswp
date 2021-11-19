@@ -1,0 +1,15 @@
+vnote_backup_file_826537664 C:/Users/Administrator/Documents/vnotebook/JavaScript/JavaScript标准对象/5. Function.md
+# 5. JavaScript 标准内置对象 Function
+
+## 属性
+
+### arguments
+### length
+
+## 方法
+
+### apply()
+### bind()
+### call()
+### toString()
+

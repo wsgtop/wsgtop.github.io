@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="消息队列 (mssages queue) 传统的消息传递系统（ActiveMQ 和 RabbitMQ）  Kafka介绍  由Apache软件基金会开发的一个开源流处理平台 由Scala和Java语言编写 是一种高吞吐量的分布式发布订阅消息系统 跨平台使用  用例  消息  可以替代传统的消息代理 跟踪网络活动 将用户活动跟踪管道重建为一组实时发布-订阅源 度量 用于监控数据 日志聚合 替代日志聚">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/1.%20%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="消息队列 (mssages queue) 传统的消息传递系统（ActiveMQ 和 RabbitMQ）  Kafka介绍  由Apache软件基金会开发的一个开源流处理平台 由Scala和Java语言编写 是一种高吞吐量的分布式发布订阅消息系统 跨平台使用  用例  消息  可以替代传统的消息代理 跟踪网络活动 将用户活动跟踪管道重建为一组实时发布-订阅源 度量 用于监控数据 日志聚合 替代日志聚">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-22T11:10:42.652Z">
+<meta property="article:modified_time" content="2021-09-22T11:10:42.652Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/1.%20%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-22T11:10:42.652Z" itemprop="datePublished">2021-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="消息队列-mssages-queue"><a href="#消息队列-mssages-queue" class="headerlink" title="消息队列 (mssages queue)"></a>消息队列 (mssages queue)</h1><ul>
+<li>传统的消息传递系统（ActiveMQ 和 RabbitMQ）</li>
+</ul>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><p><strong>介绍</strong></p>
+<ul>
+<li>由Apache软件基金会开发的一个开源流处理平台</li>
+<li>由Scala和Java语言编写</li>
+<li>是一种高吞吐量的分布式发布订阅消息系统</li>
+<li>跨平台使用</li>
+</ul>
+<p><strong>用例</strong></p>
+<ul>
+<li>消息  可以替代传统的消息代理</li>
+<li>跟踪网络活动 将用户活动跟踪管道重建为一组实时发布-订阅源</li>
+<li>度量 用于监控数据</li>
+<li>日志聚合 替代日志聚合解决问题</li>
+<li>流处理 通过管道处理数据</li>
+<li>采集日志 存储日志数据</li>
+<li>提交日志 从外部为分布式系统提供日志提交功能</li>
+</ul>
+<p><strong>特性</strong></p>
+<ul>
+<li>通过O(1)的磁盘数据结构提供消息的持久化，这种结构对于即使数以TB的消息存储也能够保持长时间的稳定性能</li>
+<li>高吞吐量 ：即使是非常普通的硬件Kafka也可以支持每秒数百万的消息</li>
+<li>支持通过Kafka服务器和消费机集群来分区消息</li>
+<li>支持Hadoop并行数据加载</li>
+</ul>
+<p><strong>相关术语</strong></p>
+<ul>
+<li>broker : kafka集群包含一个或多个服务器，这种服务器被称为broker</li>
+<li>topic : 发布到kafka上的消息归属的类别（消息主题）</li>
+<li>partition : 每个topic包含一个或多个partition（分区）</li>
+<li>producer : 负责发布消息的生产者，发布消息到kafka</li>
+<li>consumer ： 负责接收消息的消费者,读取消息的客户端</li>
+<li>consumer group ：每个消费者属于一个特定的组</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/1.%20%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.html" data-id="ckw6cu3pi000flsdcaq5z53ai" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

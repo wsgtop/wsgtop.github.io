@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="List1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283import &amp;#123; redis &amp;#125; from &quot;.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/List.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="List1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283import &amp;#123; redis &amp;#125; from &quot;.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.133Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.133Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/List.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.133Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; redis &#125; <span class="keyword">from</span> <span class="string">&quot;./conn.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// List 列表最多可存储 2^32 -1 元素 (4294967295, 每个列表可存储40多亿)。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// lpush  lpushx  </span></span><br><span class="line"><span class="comment">// rpush  rpushx</span></span><br><span class="line"><span class="comment">// lpop  rpop</span></span><br><span class="line"><span class="comment">// lrange </span></span><br><span class="line"><span class="comment">// lindex</span></span><br><span class="line"><span class="comment">// lset</span></span><br><span class="line"><span class="comment">// llen</span></span><br><span class="line"><span class="comment">// linsert</span></span><br><span class="line"><span class="comment">// lrem</span></span><br><span class="line"><span class="comment">// ltrim</span></span><br><span class="line"><span class="comment">// rpoplpush</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// lrange 查询指定开始到结束位置的列表元素</span></span><br><span class="line"><span class="comment">// lpush  将一个或多个值插入到列表头部，列表不存在时创建。</span></span><br><span class="line"><span class="comment">// lpushx 将一个或多个值插入到列表头部，列表不存在时忽略该操作。</span></span><br><span class="line"><span class="comment">// rpush  将一个或多个值插入到列表的尾部(最右边)</span></span><br><span class="line"><span class="comment">// rpushx 将一个或多个值插入到列表的尾部(最右边)，列表不存在，操作无效。</span></span><br><span class="line"><span class="keyword">await</span> redis.del(<span class="string">&quot;test_list&quot;</span>);</span><br><span class="line"><span class="keyword">await</span> redis.lpush(<span class="string">&quot;test_list&quot;</span>, <span class="string">&quot;oracle&quot;</span>, <span class="string">&quot;mysql&quot;</span>, <span class="string">&quot;sqlsqlver&quot;</span>, <span class="string">&quot;oracle&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> redis.lrange(<span class="string">&quot;test_list&quot;</span>, <span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;list的值&quot;</span>, data);</span><br><span class="line"></span><br><span class="line"><span class="comment">// lindex 获取指定位置的元素</span></span><br><span class="line"><span class="keyword">const</span> lindex = <span class="keyword">await</span> redis.lindex(<span class="string">&quot;test_list&quot;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;列表的第一个元素&quot;</span>, lindex);</span><br><span class="line"></span><br><span class="line"><span class="comment">// llen  获取列表的长度</span></span><br><span class="line"><span class="keyword">const</span> llen = <span class="keyword">await</span> redis.llen(<span class="string">&quot;test_list&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;列表的长度&quot;</span>, llen);</span><br><span class="line"></span><br><span class="line"><span class="comment">// linsert  在列表的元素前或者后插入元素。返回操作后列表的长度</span></span><br><span class="line"><span class="keyword">const</span> linsert_BEFORE = <span class="keyword">await</span> redis.linsert(</span><br><span class="line">  <span class="string">&quot;test_list&quot;</span>,</span><br><span class="line">  <span class="string">&quot;BEFORE&quot;</span>,</span><br><span class="line">  <span class="string">&quot;mysql&quot;</span>,</span><br><span class="line">  <span class="string">&quot;Redis_BEFORE&quot;</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">const</span> linsert_AFTER = <span class="keyword">await</span> redis.linsert(</span><br><span class="line">  <span class="string">&quot;test_list&quot;</span>,</span><br><span class="line">  <span class="string">&quot;AFTER&quot;</span>,</span><br><span class="line">  <span class="string">&quot;mysql&quot;</span>,</span><br><span class="line">  <span class="string">&quot;Redis_AFTER&quot;</span></span><br><span class="line">);</span><br><span class="line"><span class="built_in">console</span>.log(linsert_BEFORE, linsert_AFTER);</span><br><span class="line"></span><br><span class="line"><span class="comment">// lpop 移除列表的第一个元素</span></span><br><span class="line"><span class="comment">// rpop 移除列表的最后一个元素</span></span><br><span class="line"><span class="keyword">const</span> lpopList1 = <span class="keyword">await</span> redis.lrange(<span class="string">&quot;test_list&quot;</span>, <span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line"><span class="keyword">const</span> lpop = <span class="keyword">await</span> redis.lpop(<span class="string">&quot;test_list&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> lpopList2 = <span class="keyword">await</span> redis.lrange(<span class="string">&quot;test_list&quot;</span>, <span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line"><span class="keyword">const</span> rpop = <span class="keyword">await</span> redis.rpop(<span class="string">&quot;test_list&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;列表元素：&quot;</span>, lpopList1);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;列表的第一个元素：&quot;</span>, lpop);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;移除列表的第一个元素剩余元素：&quot;</span>, lpopList2);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;列表的最后一个元素：&quot;</span>, rpop);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// lrem 移除列表中与Value相等的元素</span></span><br><span class="line"><span class="keyword">const</span> lrem = <span class="keyword">await</span> redis.lrem(<span class="string">&#x27;test_list&#x27;</span>,<span class="number">1</span>,<span class="string">&#x27;oracle&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;移除的元素的数量：&#x27;</span>,lrem);</span><br><span class="line"></span><br><span class="line"><span class="comment">// lset  通过索引来重新设置元素的值。对应的索引值不存在，则报错</span></span><br><span class="line"><span class="keyword">await</span> redis.lset(<span class="string">&#x27;test_list&#x27;</span>,<span class="number">3</span>,<span class="string">&#x27;oracle_3&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> temp_lset = <span class="keyword">await</span> redis.lindex(<span class="string">&#x27;test_list&#x27;</span>,<span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;修改的值：&#x27;</span>,temp_lset);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ltrim 删除区间之外的元素</span></span><br><span class="line"><span class="keyword">const</span> ltrim = <span class="keyword">await</span> redis.ltrim(<span class="string">&#x27;test_list&#x27;</span>,<span class="number">0</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;删除区间之外的元素,操作结果：&#x27;</span>,ltrim);</span><br><span class="line"></span><br><span class="line"><span class="comment">// rpoplpush  移除列表的最后一个元素，并将该元素添加到另一个列表并返回</span></span><br><span class="line"><span class="keyword">await</span> redis.del(<span class="string">&#x27;test_list2&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list = <span class="keyword">await</span> redis.lrange(<span class="string">&#x27;test_list&#x27;</span>,<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line"><span class="keyword">await</span> redis.rpoplpush(<span class="string">&#x27;test_list&#x27;</span>,<span class="string">&#x27;test_list2&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> list1 = <span class="keyword">await</span> redis.lrange(<span class="string">&#x27;test_list&#x27;</span>,<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line"><span class="keyword">const</span> list2 = <span class="keyword">await</span> redis.lrange(<span class="string">&#x27;test_list2&#x27;</span>,<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line"><span class="built_in">console</span>.log(list);</span><br><span class="line"><span class="built_in">console</span>.log(list1);</span><br><span class="line"><span class="built_in">console</span>.log(list2);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/List.html" data-id="ckw6cu3qe0038lsdcety01v8w" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

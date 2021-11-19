@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="3. JavaScript 标准内置对象 Datenew Date()成员yearmonthdatehourminutesseconds方法Date.now()实例方法getFullYear()getMonth()getDate()getHours()getMinutes()getSecondsgetDay()getMilliseconds()getTime()getTimezoneOffset(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/3.%20Date.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="3. JavaScript 标准内置对象 Datenew Date()成员yearmonthdatehourminutesseconds方法Date.now()实例方法getFullYear()getMonth()getDate()getHours()getMinutes()getSecondsgetDay()getMilliseconds()getTime()getTimezoneOffset(">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/3.%20Date.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.117Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="3-JavaScript-标准内置对象-Date"><a href="#3-JavaScript-标准内置对象-Date" class="headerlink" title="3. JavaScript 标准内置对象 Date"></a>3. JavaScript 标准内置对象 Date</h1><h2 id="new-Date"><a href="#new-Date" class="headerlink" title="new Date()"></a>new Date()</h2><h2 id="成员"><a href="#成员" class="headerlink" title="成员"></a>成员</h2><h3 id="year"><a href="#year" class="headerlink" title="year"></a>year</h3><h3 id="month"><a href="#month" class="headerlink" title="month"></a>month</h3><h3 id="date"><a href="#date" class="headerlink" title="date"></a>date</h3><h3 id="hour"><a href="#hour" class="headerlink" title="hour"></a>hour</h3><h3 id="minutes"><a href="#minutes" class="headerlink" title="minutes"></a>minutes</h3><h3 id="seconds"><a href="#seconds" class="headerlink" title="seconds"></a>seconds</h3><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Date-now"><a href="#Date-now" class="headerlink" title="Date.now()"></a>Date.now()</h3><h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><h3 id="getFullYear"><a href="#getFullYear" class="headerlink" title="getFullYear()"></a>getFullYear()</h3><h3 id="getMonth"><a href="#getMonth" class="headerlink" title="getMonth()"></a>getMonth()</h3><h3 id="getDate"><a href="#getDate" class="headerlink" title="getDate()"></a>getDate()</h3><h3 id="getHours"><a href="#getHours" class="headerlink" title="getHours()"></a>getHours()</h3><h3 id="getMinutes"><a href="#getMinutes" class="headerlink" title="getMinutes()"></a>getMinutes()</h3><h3 id="getSeconds"><a href="#getSeconds" class="headerlink" title="getSeconds"></a>getSeconds</h3><h3 id="getDay"><a href="#getDay" class="headerlink" title="getDay()"></a>getDay()</h3><h3 id="getMilliseconds"><a href="#getMilliseconds" class="headerlink" title="getMilliseconds()"></a>getMilliseconds()</h3><h3 id="getTime"><a href="#getTime" class="headerlink" title="getTime()"></a>getTime()</h3><h3 id="getTimezoneOffset"><a href="#getTimezoneOffset" class="headerlink" title="getTimezoneOffset()"></a>getTimezoneOffset()</h3><h3 id="getUTCFullYeay"><a href="#getUTCFullYeay" class="headerlink" title="getUTCFullYeay()"></a>getUTCFullYeay()</h3><h3 id="getUTCMonth"><a href="#getUTCMonth" class="headerlink" title="getUTCMonth()"></a>getUTCMonth()</h3><h3 id="getUTCDate"><a href="#getUTCDate" class="headerlink" title="getUTCDate()"></a>getUTCDate()</h3><h3 id="getUTCHours"><a href="#getUTCHours" class="headerlink" title="getUTCHours()"></a>getUTCHours()</h3><h3 id="getUTCMinutes"><a href="#getUTCMinutes" class="headerlink" title="getUTCMinutes()"></a>getUTCMinutes()</h3><h3 id="getUTCSeconds"><a href="#getUTCSeconds" class="headerlink" title="getUTCSeconds()"></a>getUTCSeconds()</h3><h3 id="getUTCDay"><a href="#getUTCDay" class="headerlink" title="getUTCDay()"></a>getUTCDay()</h3><h3 id="getUTCMilliSeconds"><a href="#getUTCMilliSeconds" class="headerlink" title="getUTCMilliSeconds()"></a>getUTCMilliSeconds()</h3><h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><h3 id="setFullYear"><a href="#setFullYear" class="headerlink" title="setFullYear()"></a>setFullYear()</h3><h3 id="setMonth"><a href="#setMonth" class="headerlink" title="setMonth()"></a>setMonth()</h3><h3 id="setDate"><a href="#setDate" class="headerlink" title="setDate()"></a>setDate()</h3><h3 id="setHours"><a href="#setHours" class="headerlink" title="setHours()"></a>setHours()</h3><h3 id="setMinutes"><a href="#setMinutes" class="headerlink" title="setMinutes()"></a>setMinutes()</h3><h3 id="setSeconds"><a href="#setSeconds" class="headerlink" title="setSeconds()"></a>setSeconds()</h3><h3 id="setMilliSeconds"><a href="#setMilliSeconds" class="headerlink" title="setMilliSeconds()"></a>setMilliSeconds()</h3><h3 id="setTime"><a href="#setTime" class="headerlink" title="setTime()"></a>setTime()</h3><h3 id="setUTCFullYear"><a href="#setUTCFullYear" class="headerlink" title="setUTCFullYear()"></a>setUTCFullYear()</h3><h3 id="setUTCMonth"><a href="#setUTCMonth" class="headerlink" title="setUTCMonth()"></a>setUTCMonth()</h3><h3 id="setUTCDate"><a href="#setUTCDate" class="headerlink" title="setUTCDate()"></a>setUTCDate()</h3><h3 id="setUTCHours"><a href="#setUTCHours" class="headerlink" title="setUTCHours()"></a>setUTCHours()</h3><h3 id="setUTCMinutes"><a href="#setUTCMinutes" class="headerlink" title="setUTCMinutes()"></a>setUTCMinutes()</h3><h3 id="setUTCSeconds"><a href="#setUTCSeconds" class="headerlink" title="setUTCSeconds()"></a>setUTCSeconds()</h3><h3 id="setUTCMilliSeconds"><a href="#setUTCMilliSeconds" class="headerlink" title="setUTCMilliSeconds()"></a>setUTCMilliSeconds()</h3><h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><h3 id="toDateString"><a href="#toDateString" class="headerlink" title="toDateString()"></a>toDateString()</h3><h3 id="toISOString"><a href="#toISOString" class="headerlink" title="toISOString()"></a>toISOString()</h3><h3 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString()"></a>toLocaleString()</h3><h3 id="toLocaleDateString"><a href="#toLocaleDateString" class="headerlink" title="toLocaleDateString()"></a>toLocaleDateString()</h3><h3 id="toLocaleTimeString"><a href="#toLocaleTimeString" class="headerlink" title="toLocaleTimeString()"></a>toLocaleTimeString()</h3><h3 id="toTimeString"><a href="#toTimeString" class="headerlink" title="toTimeString()"></a>toTimeString()</h3><h3 id="toUTCString"><a href="#toUTCString" class="headerlink" title="toUTCString()"></a>toUTCString()</h3><h3 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a>valueOf()</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/3.%20Date.html" data-id="ckw6cu3q10024lsdc7r683fql" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="js日期格式化123456789101112131415161718192021222324252627282930function formatDate(date, fmt) &amp;#123;  var o &#x3D; &amp;#123;    &quot;M+&quot;: date.getMonth() + 1, &#x2F;&#x2F;月份    &quot;d+&quot;: date.getDate(), &#x2F;&#x2F;日    &amp;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/JS/JS%20%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="js日期格式化123456789101112131415161718192021222324252627282930function formatDate(date, fmt) &amp;#123;  var o &#x3D; &amp;#123;    &quot;M+&quot;: date.getMonth() + 1, &#x2F;&#x2F;月份    &quot;d+&quot;: date.getDate(), &#x2F;&#x2F;日    &amp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JS/JS%20%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.117Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="js日期格式化"><a href="#js日期格式化" class="headerlink" title="js日期格式化"></a>js日期格式化</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function formatDate(date, fmt) &#123;</span><br><span class="line">  var o = &#123;</span><br><span class="line">    &quot;M+&quot;: date.getMonth() + 1, //月份</span><br><span class="line">    &quot;d+&quot;: date.getDate(), //日</span><br><span class="line">    &quot;h+&quot;: date.getHours(), //小时</span><br><span class="line">    &quot;m+&quot;: date.getMinutes(), //分</span><br><span class="line">    &quot;s+&quot;: date.getSeconds(), //秒</span><br><span class="line">    &quot;q+&quot;: Math.floor((date.getMonth() + 3) / 3), //季度</span><br><span class="line">    S: date.getMilliseconds(), //毫秒</span><br><span class="line">  &#125;;</span><br><span class="line">  if (/(y+)/.test(fmt)) &#123;</span><br><span class="line">    fmt = fmt.replace(</span><br><span class="line">      RegExp.$1,</span><br><span class="line">      (date.getFullYear() + &quot;&quot;).substr(4 - RegExp.$1.length)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  for (const k in o) &#123;</span><br><span class="line">    if (new RegExp(&quot;(&quot; + k + &quot;)&quot;).test(fmt)) &#123;</span><br><span class="line">      fmt = fmt.replace(</span><br><span class="line">        RegExp.$1,</span><br><span class="line">        RegExp.$1.length == 1 ? o[k] : (&quot;00&quot; + o[k]).substr((&quot;&quot; + o[k]).length)</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return fmt;</span><br><span class="line">&#125;</span><br><span class="line">console.info(formatDate(new Date(), &quot;yyyy-MM-dd hh:mm:ss&quot;)); //2020-11-14 14:00:46</span><br><span class="line">console.info(formatDate(new Date(), &quot;yyyy/MM/dd&quot;)); //2020/11/14</span><br><span class="line">console.info(formatDate(new Date(), &quot;yyyy年MM月dd日&quot;)); //2020年11月14日</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const now = new Date();</span><br><span class="line"></span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 默认格式 &quot;, now);</span><br><span class="line">本地时间==&gt; 默认格式  2021-03-10T03:09:47.090Z</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 一周的第几天：&quot;, now.getDay());</span><br><span class="line">本地时间==&gt; 一周的第几天： 3</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 年份：&quot;, now.getFullYear());</span><br><span class="line">本地时间==&gt; 年份： 2021</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 月份&gt;&quot;, now.getMonth() + 1); // 0 为一月</span><br><span class="line">本地时间==&gt; 月份&gt; 3</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 天：&quot;, now.getDate());</span><br><span class="line">本地时间==&gt; 天： 10</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 小时：&quot;, now.getHours());</span><br><span class="line">本地时间==&gt; 小时： 11</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 分钟：&quot;, now.getMinutes());</span><br><span class="line">本地时间==&gt; 分钟： 9</span><br><span class="line">&gt; console.log(&quot;本地时间==&gt; 秒：&quot;, now.getSeconds());</span><br><span class="line">本地时间==&gt; 秒： 47</span><br><span class="line">&gt; console.log(&quot;转成美式字符串：&quot;, now.toDateString()); //&#x27;Wed Dec 30 2020&#x27;</span><br><span class="line">转成美式字符串： Wed Mar 10 2021</span><br><span class="line">&gt; console.log(&quot;转成ISO式字符串：&quot;, now.toISOString()); //&#x27;2020-12-30T08:46:42.621Z&#x27;</span><br><span class="line">转成ISO式字符串： 2021-03-10T03:09:47.090Z</span><br><span class="line">&gt; console.log(&quot;将日期转成字符串：&quot;, now.toJSON());</span><br><span class="line">将日期转成字符串： 2021-03-10T03:09:47.090Z</span><br><span class="line">&gt; console.log(&quot;返回该日期对象日期部分的字符串：&quot;, now.toLocaleDateString());</span><br><span class="line">返回该日期对象日期部分的字符串： 2021/3/10</span><br><span class="line">&gt; console.log(&quot;指定语言：&quot;, now.toLocaleDateString(&quot;ko-KR&quot;)); // 韩国</span><br><span class="line">指定语言： 2021. 3. 10.</span><br><span class="line">&gt; console.log(&quot;将日期转成字符串：：&quot;, now.toLocaleString());</span><br><span class="line">将日期转成字符串：： 2021/3/10 上午11:09:47</span><br><span class="line">&gt; console.log(&quot;将时间转成字符串：：：&quot;, now.toLocaleTimeString());</span><br><span class="line">将时间转成字符串：：： 上午11:09:47</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="获取当前时间市本年第几周"><a href="#获取当前时间市本年第几周" class="headerlink" title="获取当前时间市本年第几周"></a>获取当前时间市本年第几周</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function getWeek () &#123;</span><br><span class="line">  let temptTime = new Date()</span><br><span class="line">  //周几</span><br><span class="line">  let weekday = temptTime.getDay() || 7</span><br><span class="line">  //周1+5天=周六</span><br><span class="line">  temptTime.setDate(temptTime.getDate() - weekday + 1 + 5)</span><br><span class="line">  let firstDay = new Date(temptTime.getFullYear(), 0, 1)</span><br><span class="line">  let dayOfWeek = firstDay.getDay()</span><br><span class="line">  let spendDay = 1</span><br><span class="line">  if (dayOfWeek != 0) &#123;</span><br><span class="line">    spendDay = 7 - dayOfWeek + 1</span><br><span class="line">  &#125;</span><br><span class="line">  firstDay = new Date(temptTime.getFullYear(), 0, 1 + spendDay)</span><br><span class="line">  let d = Math.ceil((temptTime.valueOf() - firstDay.valueOf()) / 86400000)</span><br><span class="line">  let result = Math.ceil(d / 7)</span><br><span class="line">  return result + 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="格式化日期"><a href="#格式化日期" class="headerlink" title="格式化日期"></a>格式化日期</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function formatDate(date) &#123;</span><br><span class="line">  const year = date.getFullYear();</span><br><span class="line">  let month = date.getMonth() + 1;</span><br><span class="line">  let weekday = date.getDate();</span><br><span class="line">  if (month &lt; 10) &#123;</span><br><span class="line">    month = &#x27;0&#x27; + month;</span><br><span class="line">  &#125;</span><br><span class="line">  if (weekday &lt; 10) &#123;</span><br><span class="line">    weekday = &#x27;0&#x27; + weekday;</span><br><span class="line">  &#125;</span><br><span class="line">  return year + &#x27;-&#x27; + month + &#x27;-&#x27; + weekday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获得某年某月的天数、开始日期、结束日期"><a href="#获得某年某月的天数、开始日期、结束日期" class="headerlink" title="获得某年某月的天数、开始日期、结束日期"></a>获得某年某月的天数、开始日期、结束日期</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">function getMonthDays(nowYear, myMonth) &#123;</span><br><span class="line">  const monthStartDate = new Date(nowYear, myMonth, 1);</span><br><span class="line">  const monthEndDate = new Date(nowYear, myMonth + 1, 1);</span><br><span class="line">  const days = (monthEndDate - monthStartDate) / (1000 * 60 * 60 * 24);</span><br><span class="line">  return days;</span><br><span class="line">&#125;</span><br><span class="line">const date = &#123;</span><br><span class="line">  get now() &#123;</span><br><span class="line">    return new Date();</span><br><span class="line">  &#125;,</span><br><span class="line">  get nowDayOfWeek() &#123;</span><br><span class="line">    return this.now.getDay();</span><br><span class="line">  &#125;,</span><br><span class="line">  get nowDay() &#123;</span><br><span class="line">    return this.now.getDate();</span><br><span class="line">  &#125;,</span><br><span class="line">  get nowMonth() &#123;</span><br><span class="line">    return this.now.getMonth();</span><br><span class="line">  &#125;,</span><br><span class="line">  get nowYear() &#123;</span><br><span class="line">    return this.now.getFullYear();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * weekStartDate: 获得本周的开始日期</span><br><span class="line"> * weekEndDate: 获得本周的结束日期</span><br><span class="line"> * monthStartDate: 获得本月的开始日期</span><br><span class="line"> * monthEndDate: 获得本月的结束日期</span><br><span class="line"> * getWeek : 当前时间是本年第几周</span><br><span class="line"> */</span><br><span class="line">export const getDateforStartAndEnd = &#123;</span><br><span class="line">  get weekStartDate() &#123;</span><br><span class="line">    return formatDate(new Date(date.nowYear, date.nowMonth, date.nowDay - date.nowDayOfWeek));</span><br><span class="line">  &#125;,</span><br><span class="line">  get weekEndDate() &#123;</span><br><span class="line">    return formatDate(new Date(date.nowYear, date.nowMonth, date.nowDay + (6 - date.nowDayOfWeek)));</span><br><span class="line">  &#125;,</span><br><span class="line">  get monthStartDate() &#123;</span><br><span class="line">    return formatDate(new Date(date.nowYear, date.nowMonth, 1));</span><br><span class="line">  &#125;,</span><br><span class="line">  get monthEndDate() &#123;</span><br><span class="line">    return formatDate(new Date(date.nowYear, date.nowMonth, getMonthDays(date.nowYear, date.nowMonth)));</span><br><span class="line">  &#125;,</span><br><span class="line">  get getWeek() &#123;</span><br><span class="line">    const date = new Date();</span><br><span class="line">    const time = date.getTime();</span><br><span class="line">    date.setDate(date.getDate() + 4 - (date.getDay() || 7));</span><br><span class="line">    date.setMonth(0);</span><br><span class="line">    date.setDate(1);</span><br><span class="line">    return Math.floor(Math.round((time - date) / 86400000) / 7) + 1;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/JS/JS%20%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96.html" data-id="ckw6cu3pv001mlsdc41t94fm7" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

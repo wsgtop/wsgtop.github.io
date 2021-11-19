@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="MySQL 数据库是单进程多线程的架构，和 SQL Server 类似，和 Oracle 不一样，Oracle 是多进程架构。 ![MySQL架构图](_v_images&#x2F;20210127175838477_31374.png &#x3D;700x) ![MySQL架构图2](_v_images&#x2F;20210127180328662_29999.png &#x3D;700x) 服务层  connection pool">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/MySQL%E5%9F%BA%E7%A1%80/MySQL%E6%9E%B6%E6%9E%84.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL 数据库是单进程多线程的架构，和 SQL Server 类似，和 Oracle 不一样，Oracle 是多进程架构。 ![MySQL架构图](_v_images&#x2F;20210127175838477_31374.png &#x3D;700x) ![MySQL架构图2](_v_images&#x2F;20210127180328662_29999.png &#x3D;700x) 服务层  connection pool">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.164Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.164Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/MySQL%E5%9F%BA%E7%A1%80/MySQL%E6%9E%B6%E6%9E%84.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.164Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>MySQL 数据库是单进程多线程的架构，和 SQL Server 类似，和 Oracle 不一样，Oracle 是多进程架构。</p>
+<p>![MySQL架构图](_v_images/20210127175838477_31374.png =700x)</p>
+<p>![MySQL架构图2](_v_images/20210127180328662_29999.png =700x)</p>
+<p>服务层</p>
+<ul>
+<li>connection pool 连接池</li>
+<li>servers &amp;untilities 管理服务和工具组件</li>
+<li>sql interface  SQL接口</li>
+<li>parser 解析器</li>
+<li>optimizer 优化器</li>
+<li>caches 缓存</li>
+<li>pluggable Storage Engines 储存引擎</li>
+<li>file system 文件系统</li>
+</ul>
+<p><strong>连接器</strong></p>
+<p>作用：负责跟客户端建立连接、获取权限、维持和管理连接。</p>
+<p>成功建立连接后对这个用户的权限做修改，不会影响已经存在连接的权限，只有再新建的连接才会使用新的权限设置。</p>
+<p><em><strong>查看连接</strong></em><br>show processlist 命令中可以看到空闲连接，客户端如果太长时间没动静，连接器就会自动将它断开。这个时间是由参数 wait_timeout(默认8 小时)控制。</p>
+<p><em><strong>长连接和短连接</strong></em><br>长连接是连接成功后，如果客户端持续有请求，则一直使用同一个连接。<br>短连接是指每次执行完很少的几次查询就断开连接，下次查询重新建立。<br>长连接问题<br>某些情况下MySQL使用长连接会造成MySQL 占用内存涨得特别快，因为执行过程中临时使用的内存是管理在连接对象里面的。<br>优化如下</p>
+<ul>
+<li>代码层判断执行过一个大查询后，断开重新连接</li>
+<li>5.7版本之后，mysql_reset_connection 来重新初始化连接资源，不需要重连和权限校验，但是会将连接恢复到刚创建的状态。</li>
+</ul>
+<p><em><strong>查询缓存</strong></em><br>之前执行过的语句及其结果可能会以 key-value 对的形式，被直接缓存在内存中，命中则直接返回结果。<br>只要有对一个表的更新，这个表上所有的查询缓存都会被清空，所以大多数情况下往往利大于弊。MySQL8.0后被废除</p>
+<p><strong>分析器</strong><br>识别select 、表名、列名等，判断是否存在<br>根据语法规则，判断你输入的这个 SQL 语句是否满足 MySQL 语法。</p>
+<p><strong>优化器</strong></p>
+<p>在表里面有多个索引的时候，决定使用哪个索引；<br>在一个语句有多表关联（join）的时候，决定各个表的连接顺序。<br>优化器阶段完成后，这个语句的执行方案就确定下来了，然后进入执行器阶段</p>
+<p><strong>执行器</strong></p>
+<p>先判断一下你对这个表有没有执行查询的权限,会根据表的引擎定义，去使用这个引擎提供的接口<br>示例：<br> <code>select * from T where ID=10;</code><br>执行器流程</p>
+<ul>
+<li>调用 InnoDB 引擎接口取这个表的第一行，判断 ID 值是不是 10，如果不是则跳过，如果是则将这行存在结果集中；</li>
+<li>调用引擎接口取“下一行”，重复相同的判断逻辑，直到取到这个表的最后一行。</li>
+<li>执行器将上述遍历过程中所有满足条件的行组成的记录集作为结果集返回给客户端。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/MySQL%E5%9F%BA%E7%A1%80/MySQL%E6%9E%B6%E6%9E%84.html" data-id="ckw6cu3qq004slsdcbzr208y4" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

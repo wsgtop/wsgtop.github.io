@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="javascript数据类型的判断一、javascript的数据类型js数据分为两种类型：原始数据类型和引用数据类型。原始数据类型有：string、number、boolean、undefined和null引用数据类型有：Function、Object、Date、RegExp、Number、String、Boolean和自定义类等 其中原始数据类型也称基础数据类型，是不可拆分的数据类型，他存在于栈">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="javascript数据类型的判断一、javascript的数据类型js数据分为两种类型：原始数据类型和引用数据类型。原始数据类型有：string、number、boolean、undefined和null引用数据类型有：Function、Object、Date、RegExp、Number、String、Boolean和自定义类等 其中原始数据类型也称基础数据类型，是不可拆分的数据类型，他存在于栈">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.117Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="javascript数据类型的判断"><a href="#javascript数据类型的判断" class="headerlink" title="javascript数据类型的判断"></a>javascript数据类型的判断</h1><h2 id="一、javascript的数据类型"><a href="#一、javascript的数据类型" class="headerlink" title="一、javascript的数据类型"></a>一、javascript的数据类型</h2><p>js数据分为两种类型：原始数据类型和引用数据类型。<br>原始数据类型有：string、number、boolean、undefined和null<br>引用数据类型有：Function、Object、Date、RegExp、Number、String、Boolean和自定义类等</p>
+<p>其中原始数据类型也称基础数据类型，是不可拆分的数据类型，他存在于栈中；而引用数据类型也是通常意义上所说的类，存在于堆中。<br>这两者的一个重要的区别在于原始数据类型在赋值的时候使用的是传值的方式，而引用数据类型在赋值时使用的是传址（指针）的方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var str1 = &quot;string&quot;;</span><br><span class="line">var str2 = str1;</span><br><span class="line">str2 = &quot;another string&quot;;</span><br><span class="line">alert(str1);                   //&quot;string&quot;</span><br><span class="line"></span><br><span class="line">var obj1 = &#123;key1:1&#125;;</span><br><span class="line">var obj2 = obj1;</span><br><span class="line">obj2.key1 = 2;</span><br><span class="line">alert(obj1.key1)            //2</span><br></pre></td></tr></table></figure>
+<p>二、javascript类型判断</p>
+<p>1、typeof()函数<br>对于原始数据类型，我们可以使用typeof()函数来判断他的数据类型：</p>
+<p>typeof(1)                              //number<br>typeof(“1”)                            //string<br>typeof(true)                           //boolean<br>typeof(undefined)                      //undefined<br>typeof(null)                           //object<br>注释：您也许会问，为什么 typeof 运算符对于 null 值会返回 “object”。这实际上是 JavaScript 最初实现中的一个错误，然后被 ECMAScript 沿用了。现在，null 被认为是对象的占位符，从而解释了这一矛盾，但从技术上来说，它仍然是原始值。</p>
+<p>2、instanceof<br>typeof()函数对于原始类型的判断还差强人意，但他是没法用来区分引用数据类型的，因为所有的引用数据类型都会返回”object”。于是javascript引入了java中使用的instanceof，用来判断一个变量是否是某个对象的实例，所以对于引用类型我们使用instanceof来进行类型判断。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">obj instanceof Object;           //true</span><br><span class="line"></span><br><span class="line">var arr = [];</span><br><span class="line">arr instanceof Array;           //true</span><br><span class="line"></span><br><span class="line">var now = new Date();</span><br><span class="line">now instanceof Date;             //true</span><br><span class="line"></span><br><span class="line">var func = function()&#123;&#125;;</span><br><span class="line">func instanceof Function;        //true</span><br><span class="line"></span><br><span class="line">var str = &quot;string&quot;;</span><br><span class="line">str instanceof String;           //false</span><br></pre></td></tr></table></figure>
+
+<p>如上面所示，instanceof对于引用类型的支持很好，但他是无法对原始类型进行判断，所以一般都是在typeof判断为object时才使用instanceof。</p>
+<p>3、Object.prototype.toString.call()<br>在javascript高级程序设计中提供了另一种方法，可以通用的来判断原始数据类型和引用数据类型，先看代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var num1 = 1;</span><br><span class="line">var num2 = new Number(1);</span><br><span class="line">Object.prototype.toString.call(num1) == &quot;[object Number]&quot;;      //true</span><br><span class="line">Object.prototype.toString.call(num2) == &quot;[object Number]&quot;;      //true</span><br><span class="line"></span><br><span class="line">var arr = [];</span><br><span class="line">Object.prototype.toString.call(arr) == &quot;[object Array]&quot;;        //true</span><br><span class="line"></span><br><span class="line">var func = function()&#123;&#125;;</span><br><span class="line">Object.prototype.toString.call(func) == &quot;[object Function]&quot;;   //true</span><br><span class="line"></span><br><span class="line">function A()&#123;&#125;;</span><br><span class="line">var a = new A();</span><br><span class="line">Object.prototype.toString.call(a) == &quot;[object Object]&quot;;   //true</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，这个方法提供了一个通用的数据类型判断模式，虽然对于自定义类的判断还没法做到，但在日常的类型判断中我们更多的是针对非自定义类，对于自定义类我们也可以转使用instanceof来进行判断，所以这种方法可以成为一种通用的类型判断方法。</p>
+<p>下面附上常用的类型判断函数集合：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var valide = (function()&#123;</span><br><span class="line">    // 是否是字符串</span><br><span class="line">    function isString(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object String]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是数字</span><br><span class="line">    function isNumber(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Number]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是布尔值</span><br><span class="line">    function isBoolean(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Boolean]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否undefined</span><br><span class="line">    function isUndefined(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Undefined]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是null</span><br><span class="line">    function isNull(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Null]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否数组</span><br><span class="line">    function isArray(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Array]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是函数</span><br><span class="line">    function isFunction(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Function]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是对象</span><br><span class="line">    function isObject(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Object]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是正则表达式</span><br><span class="line">    function isRegExp(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object RegExp]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    // 是否是日期对象</span><br><span class="line">    function isDate(value)&#123;</span><br><span class="line">        return Object.prototype.toString.call(value) == &quot;[object Date]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123;</span><br><span class="line">        isString: isString,</span><br><span class="line">        isNumber: isNumber,</span><br><span class="line">        isBoolean: isBoolean,</span><br><span class="line">        isUndefined: isUndefined,</span><br><span class="line">        isNull: isNull,</span><br><span class="line">        isArray: isArray,</span><br><span class="line">        isFunction: isFunction,</span><br><span class="line">        isObject: isObject,</span><br><span class="line">        isRegExp: isRegExp,</span><br><span class="line">        isDate: isDate</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>4、constructor</p>
+<p>在W3C定义中的定义：constructor 属性返回对创建此对象的数组函数的引用</p>
+<p>就是返回对象相对应的构造函数。从定义上来说跟instanceof不太一致，但效果都是一样的</p>
+<p>如: (a instanceof Array)   //a是否Array的实例？true or false</p>
+<p>　  (a.constructor == Array)  // a实例所对应的构造函数是否为Array? true or false</p>
+<p>举个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function employee(name,job,born)&#123;</span><br><span class="line">    this.name=name;</span><br><span class="line">    this.job=job;</span><br><span class="line">    this.born=born;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var bill=new employee(&quot;Bill Gates&quot;,&quot;Engineer&quot;,1985);</span><br><span class="line">console.log(bill.constructor); //输出function employee(name, jobtitle, born)&#123;this.name = name; this.jobtitle = job; this.born = born;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么判断各种类型的方法就是:</p>
+<p>console.log([].constructor == Array);<br>console.log({}.constructor == Object);<br>console.log(“string”.constructor == String);<br>console.log((123).constructor == Number);<br>console.log(true.constructor == Boolean);<br>较为严谨并且通用的方法：</p>
+<p>function isArray(object){<br>    return object &amp;&amp; typeof object===’object’ &amp;&amp;<br>            Array == object.constructor;<br>}<br>！！注意：</p>
+<p>使用instaceof和construcor,被判断的array必须是在当前页面声明的！比如，一个页面（父页面）有一个框架，框架中引用了一个页面（子页面），在子页面中声明了一个array，并将其赋值给父页面的一个变量，这时判断该变量，Array == object.constructor;会返回false；<br>原因：<br>1、array属于引用型数据，在传递过程中，仅仅是引用地址的传递。<br>2、每个页面的Array原生对象所引用的地址是不一样的，在子页面声明的array，所对应的构造函数，是子页面的Array对象；父页面来进行判断，使用的Array并不等于子页面的Array；切记，不然很难跟踪问题！</p>
+<p> /*********************************************************/</p>
+<p>补充jquery判断js数据类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$.isArray([1,2]);              // 数组</span><br><span class="line">$.isFunction(function () &#123; &#125;); // 函数function</span><br><span class="line">$.isEmptyObject(null);         // null,undefind</span><br><span class="line">$.isXMLDoc();    // xml</span><br><span class="line">typeof (2) === &quot;number&quot;;    // 数字</span><br><span class="line">typeof (&quot;2&quot;) === &quot;string&quot;;  // 字符串</span><br><span class="line">typeof (true) === &quot;boolean&quot;;// bool型</span><br><span class="line">typeof (function () &#123; &#125;) === &quot;function&quot;;// 函数function</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD.html" data-id="ckw6cu3q30029lsdc5s49hhi7" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

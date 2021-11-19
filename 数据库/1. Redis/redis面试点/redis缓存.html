@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="参考CSDN 1. 为什么要用Redis？ 高性能 高并发  2. redis和Memcached    redis memcached    结构 数据结构多，支持更丰富的结构和操作    集群 redis3.X版本后支持cluster 没有原生的cluster,需要依靠客户端实现往集群中分片写入数据   性能 redis使用单核 可以使用多核   持久化 支持 不支持   3. redis的线">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/redis%E7%BC%93%E5%AD%98.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考CSDN 1. 为什么要用Redis？ 高性能 高并发  2. redis和Memcached    redis memcached    结构 数据结构多，支持更丰富的结构和操作    集群 redis3.X版本后支持cluster 没有原生的cluster,需要依靠客户端实现往集群中分片写入数据   性能 redis使用单核 可以使用多核   持久化 支持 不支持   3. redis的线">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/_v_images/20210113104255243_25821.png">
+<meta property="article:published_time" content="2021-09-28T14:09:36.164Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.164Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/_v_images/20210113104255243_25821.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/redis%E7%BC%93%E5%AD%98.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.164Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Design407/article/details/105738386?utm_medium=distribute.pc_relevant.none-task-blog-OPENSEARCH-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-1.control">参考CSDN</a></p>
+<h3 id="1-为什么要用Redis？"><a href="#1-为什么要用Redis？" class="headerlink" title="1. 为什么要用Redis？"></a>1. 为什么要用Redis？</h3><ul>
+<li>高性能</li>
+<li>高并发</li>
+</ul>
+<h3 id="2-redis和Memcached"><a href="#2-redis和Memcached" class="headerlink" title="2. redis和Memcached"></a>2. redis和Memcached</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>redis</th>
+<th>memcached</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结构</td>
+<td>数据结构多，支持更丰富的结构和操作</td>
+<td></td>
+</tr>
+<tr>
+<td>集群</td>
+<td>redis3.X版本后支持cluster</td>
+<td>没有原生的cluster,需要依靠客户端实现往集群中分片写入数据</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>redis使用单核</td>
+<td>可以使用多核</td>
+</tr>
+<tr>
+<td>持久化</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+</tbody></table>
+<h3 id="3-redis的线程模型"><a href="#3-redis的线程模型" class="headerlink" title="3. redis的线程模型"></a>3. redis的线程模型</h3><p>Redis 内部使用文件事件处理器 file event handler，这个文件事件处理器是单线程的，所以 redis 才叫做单线程的模型。<br>它采用 IO 多路复用机制同时监听多个 socket，将产生事件的 socket 压入内存队列中，事件分派器根据 socket 上的事件类型来选择对应的事件处理器进行处理。</p>
+<p>文件事件处理器模型<br><img src="_v_images/20210113104255243_25821.png" alt="线程模型"></p>
+<h3 id="4-redis为什么单线程却能支持高并发"><a href="#4-redis为什么单线程却能支持高并发" class="headerlink" title="4. redis为什么单线程却能支持高并发"></a>4. redis为什么单线程却能支持高并发</h3><ul>
+<li>纯内存操作<br>  redis 将所有数据放在内存中，内存的响应时长大约为 100 纳秒，这是 redis 的 QPS 过万的重要基础</li>
+<li>核心是基于非阻塞的 IO 多路复用机制</li>
+<li>单线程反而避免了多线程的频繁上下文切换问题<br>  单线程可以简化数据结构和算法的实现。（并发数据结构实现不但困难而且开发测试比较麻烦）<br>  单线程避免了线程切换和竞态产生的消耗，（对于服务端开发来说，锁和线程切换通常是性能杀手。）<br>  单线程的问题：对于每个命令的执行时间是有要求的。如果某个命令执行过长，会造成其他命令的阻塞，所以 redis 适用于那些需要快速执行的场景<h3 id="5-redis的数据类型和使用场景"><a href="#5-redis的数据类型和使用场景" class="headerlink" title="5. redis的数据类型和使用场景"></a>5. redis的数据类型和使用场景</h3></li>
+<li>string  做KV缓存</li>
+<li>hash   结构化数据缓存</li>
+<li>set     无序集合 </li>
+<li>list    有序列表，做评论列表、粉丝列表、消息队列等</li>
+<li>zset   无序集合   排名</li>
+</ul>
+<h3 id="6-redis过期策略、内存淘汰机制，LRU实现"><a href="#6-redis过期策略、内存淘汰机制，LRU实现" class="headerlink" title="6. redis过期策略、内存淘汰机制，LRU实现"></a>6. redis过期策略、内存淘汰机制，LRU实现</h3><h4 id="6-1-过期策略："><a href="#6-1-过期策略：" class="headerlink" title="6.1. 过期策略："></a>6.1. 过期策略：</h4><p>定期删除+惰性删除。<br>定期删除：redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。<br>惰性删除：在获取某个 key 的时候，redis 会检查一下 ，这个 key 如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。</p>
+<h4 id="6-2-内存淘汰机制"><a href="#6-2-内存淘汰机制" class="headerlink" title="6.2. 内存淘汰机制"></a>6.2. 内存淘汰机制</h4><p>内存不足时，存入数据的机制</p>
+<ul>
+<li>noeviction:  新写入操作会报错</li>
+<li>allkey-lru:    在键空间中，移除最近最少使用的 key</li>
+<li>allkey-random:   在键空间中，随机移除某个 key</li>
+<li>volatile-lru:   在设置了过期时间的键空间中，移除最近最少使用的 key</li>
+<li>volatile-random:   在设置了过期时间的键空间中，随机移除某个 key</li>
+<li>volatile-ttl:   在设置了过期时间的键空间中，有更早过期时间的 key 优先移除</li>
+</ul>
+<h3 id="7-如何保证-redis-的高并发和高可用？-redis-的主从复制原理能介绍一下么？redis-的哨兵原理能介绍一下么？"><a href="#7-如何保证-redis-的高并发和高可用？-redis-的主从复制原理能介绍一下么？redis-的哨兵原理能介绍一下么？" class="headerlink" title="7. 如何保证 redis 的高并发和高可用？ redis 的主从复制原理能介绍一下么？redis 的哨兵原理能介绍一下么？"></a>7. 如何保证 redis 的高并发和高可用？ redis 的主从复制原理能介绍一下么？redis 的哨兵原理能介绍一下么？</h3><ul>
+<li>redis 单机能承载多高并发？如果单机扛不住如何扩容扛更多的并发？redis 会不会挂？既然 redis 会挂那怎么保证 redis 是高可用的？<br>redis单机可以承受上万的并发，一般不会超过10W，如果并发量太大，则需要设置集群，保证redis在宕机或者高并发后能够支撑起服务</li>
+<li>redis 主从架构</li>
+<li>redis 基于哨兵实现高可用redis<br>实现高并发主要依靠主从架构，一主多从，单主用来写入数据，单机几万 QPS，多从用来查询数据，多个从实例可以提供每秒 10w 的 QPS。<br>如果想要在实现高并发的同时，容纳大量的数据，那么就需要 redis 集群，使用 redis 集群之后，可以提供每秒几十万的读写并发。<br>redis 高可用，如果是做主从架构部署，那么加上哨兵就可以了，就可以实现，任何一个实例宕机，可以进行主备切换。</li>
+</ul>
+<h3 id="10-redis-的持久化有哪几种方式？不同的持久化机制都有什么-优缺点？持久化机制具体底层是如何实现的？"><a href="#10-redis-的持久化有哪几种方式？不同的持久化机制都有什么-优缺点？持久化机制具体底层是如何实现的？" class="headerlink" title="10. redis 的持久化有哪几种方式？不同的持久化机制都有什么 优缺点？持久化机制具体底层是如何实现的？"></a>10. redis 的持久化有哪几种方式？不同的持久化机制都有什么 优缺点？持久化机制具体底层是如何实现的？</h3><ul>
+<li>RDB：RDB 持久化机制，是对 redis 中的数据执行周期性的持久化。</li>
+<li>AOF：AOF 机制对每条写入命令作为日志，以 append-only 的模式写入一个日志文件中，在 redis重启的时候，可以通过回放 AOF 日志中的写入指令来重新构建整个数据集。</li>
+</ul>
+<p>RDB 优缺点<br>RDB 会生成多个数据文件，每个数据文件都代表了某一个时刻中 redis 的数据，这种多个数据文件的方式，非常适合做冷备，可以将这种完整的数据文件发送到一些远程的安全存储上去，比如说 Amazon的 S3 云服务上去，在国内可以是阿里云的 ODPS 分布式存储上，以预定好的备份策略来定期备份 redis中的数据。<br>RDB 对 redis 对外提供的读写服务，影响非常小，可以让 redis 保持高性能，因为 redis 主进程只需要 fork 一个子进程，让子进程执行磁盘 IO 操作来进行 RDB 持久化即可。 ·<br>相对于 AOF 持久化机制来说，直接基于 RDB 数据文件来重启和恢复 redis 进程，更加快速。<br>如果想要在 redis 故障时，尽可能少的丢失数据，那么 RDB 没有 AOF 好。一般来说，RDB 数据快照文件，都是每隔 5 分钟，或者更长时间生成一次，这个时候就得接受一旦 redis 进程宕机，那么会丢失最近 5 分钟的数据。<br>RDB 每次在 fork 子进程来执行 RDB 快照数据文件生成的时候，如果数据文件特别大，可能会导致对客户端提供的服务暂停数毫秒，或者甚至数秒。</p>
+<p>AOF 优缺点</p>
+<p>AOF 可以更好的保护数据不丢失，一般 AOF 会每隔 1 秒，通过一个后台线程执行一次 fsync 操作，最多丢失 1 秒钟的数据。<br>AOF 日志文件以 append-only 模式写入，所以没有任何磁盘寻址的开销，写入性能非常高，而且文件不容易破损，即使文件尾部破损，也很容易修复。<br>AOF 日志文件即使过大的时候，出现后台重写操作，也不会影响客户端的读写。因为在 rewrite log的时候，会对其中的指令进行压缩，创建出一份需要恢复数据的最小日志出来。在创建新日志文件的时候，老的日志文件还是照常写入。当新的merge后日志文件ready的时候，在交换新老日志文件即可。<br>AOF 日志文件的命令通过非常可读的方式进行记录，这个特性非常适合做灾难性的误删除的紧急恢复。比如某人不小心用 flushall 命令清空了所有数据，只要这个时候后台 rewrite 还没有发生，那么就可以立即拷贝 AOF 文件，将最后一条 flushall 命令给删了，然后再将该 AOF 文件放回去，就可以通过恢复机制，自动恢复所有数据。<br>对于同一份数据来说，AOF 日志文件通常比 RDB 数据快照文件更大。<br>AOF 开启后，支持的写 QPS 会比 RDB 支持的写 QPS 低，因为 AOF 一般会配置成每秒 fsync 一次日志文件，当然，每秒一次 fsync，性能也还是很高的。（如果实时写入，那么 QPS 会大降，redis 性 能会大大降低）<br>以前 AOF 发生过 bug，就是通过 AOF 记录的日志，进行数据恢复的时候，没有恢复一模一样的数据出来。所以说，类似 AOF 这种较为复杂的基于命令日志 / merge / 回放的方式，比基于 RDB 每次持久化一份完整的数据快照文件的方式，更加脆弱一些，容易有 bug。不过 AOF 就是为了避免 rewrite 过程导致的 bug，因此每次 rewrite 并不是基于旧的指令日志进行 merge 的，而是基于当时内存中的数据进行指令的重新构建，这样健壮性会好很多。</p>
+<p>RDB 和 AOF 到底该如何选择</p>
+<p>不要仅仅使用 RDB，因为那样会导致你丢失很多数据；<br>也不要仅仅使用 AOF，因为那样有两个问题：第一，你通过 AOF 做冷备，没有 RDB 做冷备来的恢复速度更快；第二，RDB 每次简单粗暴生成数据快照，更加健壮，可以避免 AOF 这种复杂的备份和恢复机制的 bug；</p>
+<h3 id="11-redis-集群模式的工作原理能说一下么？在集群模式下，-redis-的-key-是如何寻址的？分布式寻址都有哪些算法？了-解一致性-hash-算法吗？"><a href="#11-redis-集群模式的工作原理能说一下么？在集群模式下，-redis-的-key-是如何寻址的？分布式寻址都有哪些算法？了-解一致性-hash-算法吗？" class="headerlink" title="11. redis 集群模式的工作原理能说一下么？在集群模式下， redis 的 key 是如何寻址的？分布式寻址都有哪些算法？了 解一致性 hash 算法吗？"></a>11. redis 集群模式的工作原理能说一下么？在集群模式下， redis 的 key 是如何寻址的？分布式寻址都有哪些算法？了 解一致性 hash 算法吗？</h3><p>参考 redis cluster 介绍</p>
+<h3 id="12-什么是-redis-的雪崩、穿透和击穿？redis-崩溃之后会-怎么样？系统该如何应对这种情况？如何处理-redis-的穿-透？"><a href="#12-什么是-redis-的雪崩、穿透和击穿？redis-崩溃之后会-怎么样？系统该如何应对这种情况？如何处理-redis-的穿-透？" class="headerlink" title="12. 什么是 redis 的雪崩、穿透和击穿？redis 崩溃之后会 怎么样？系统该如何应对这种情况？如何处理 redis 的穿 透？"></a>12. 什么是 redis 的雪崩、穿透和击穿？redis 崩溃之后会 怎么样？系统该如何应对这种情况？如何处理 redis 的穿 透？</h3><h3 id="13-如何保证缓存与数据库的双写一致性"><a href="#13-如何保证缓存与数据库的双写一致性" class="headerlink" title="13. 如何保证缓存与数据库的双写一致性"></a>13. 如何保证缓存与数据库的双写一致性</h3><h3 id="14-redis-的并发竞争问题是什么？如何解决这个问题？了解redis-事务的-CAS-方案吗？"><a href="#14-redis-的并发竞争问题是什么？如何解决这个问题？了解redis-事务的-CAS-方案吗？" class="headerlink" title="14. redis 的并发竞争问题是什么？如何解决这个问题？了解redis 事务的 CAS 方案吗？"></a>14. redis 的并发竞争问题是什么？如何解决这个问题？了解redis 事务的 CAS 方案吗？</h3><h3 id="15-生产环境中的-redis-是怎么部署的？"><a href="#15-生产环境中的-redis-是怎么部署的？" class="headerlink" title="15. 生产环境中的 redis 是怎么部署的？"></a>15. 生产环境中的 redis 是怎么部署的？</h3><p><strong>redis生产集群的部署架构：</strong></p>
+<ul>
+<li><p>是主从架构？</p>
+</li>
+<li><p>集群架构？</p>
+</li>
+<li><p>用了哪种集群方案？</p>
+</li>
+<li><p>有没有做高可用保证？</p>
+</li>
+<li><p>有没有开启持久化机制确保可以进行数据恢复？  </p>
+</li>
+<li><p>线上 redis 给几个 G 的内存？</p>
+</li>
+<li><p>设置了哪些参数？</p>
+</li>
+<li><p>压测后你们 redis 集群承载多少QPS？</p>
+<p>redis cluster，10 台机器，5 台机器部署了 redis 主实例，另外 5 台机器部署了 redis 的从实例， 每个主实例挂了一个从实例，5 个节点对外提供读写服务，<br>每个节点的读写高峰 qps 可能可以达到每秒 5 万，5 台机器最多是 25 万读写请求/s。</p>
+</li>
+</ul>
+<p>机器是什么配置？32G 内存+ 8 核 CPU + 1T 磁盘，但是分配给 redis 进程的是 10g 内存，一般线上生产环境，redis 的内存尽量不要超过 10g，超过 10g 可能会有问题。<br>5 台机器对外提供读写，一共有 50g 内存。</p>
+<p>因为每个主实例都挂了一个从实例，所以是高可用的，任何一个主实例宕机，都会自动故障迁移，redis 从实例会自动变成主实例继续提供读写服务。<br>你往内存里写的是什么数据？每条数据的大小是多少？商品数据，每条数据是 10kb。100 条数据是 1mb，10 万条数据是 1g。常驻内存的是 200 万条商品数据，占用内存是 20g，仅仅不到总内存的 50%。目前高峰期每秒就是 3500 左右的请求量。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/redis%E7%BC%93%E5%AD%98.html" data-id="ckw6cu3qj003vlsdcf672fjtf" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

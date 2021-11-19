@@ -6,11 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="日期字符串转换函数DATE_FORMAT(date, format)将日期date按照给定的模式format转换成字符串。format中可使用以下模式元素 SELECT date_format(‘2009-10-04 22:23:00’, ‘%W %M %Y’); SELECT date_format(now(), ‘%W %M %Y’); SELECT date_format(‘2007-10-">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/SQL/MySQL%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="日期字符串转换函数DATE_FORMAT(date, format)将日期date按照给定的模式format转换成字符串。format中可使用以下模式元素 SELECT date_format(‘2009-10-04 22:23:00’, ‘%W %M %Y’); SELECT date_format(now(), ‘%W %M %Y’); SELECT date_format(‘2007-10-">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.180Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.180Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,59 +73,39 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/11/18/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-11-18T12:50:52.715Z" itemprop="datePublished">2021-11-18</time>
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/SQL/MySQL%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.180Z" itemprop="datePublished">2021-09-28</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/11/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>日期字符串转换函数<br>DATE_FORMAT(date, format)<br>将日期date按照给定的模式format转换成字符串。format中可使用以下模式元素</p>
+<p>SELECT date_format(‘2009-10-04 22:23:00’, ‘%W %M %Y’);</p>
+<p>SELECT date_format(now(), ‘%W %M %Y’);</p>
+<p>SELECT date_format(‘2007-10-04 22:23:00’, ‘%H:%i:%s’);</p>
+<p>TIME_FORMAT(date, format)<br>format中只可使用时、分、秒和微秒模式元素<br>SELECT time_format(‘22:23:01’, ‘%H.%i.%s’);</p>
+<p>STR_TO_DATE(str, format)<br>将字符串str以指定的模式format转换成日期。format中可以包含模式元素和字面量，字面量必须匹配str中的字面量：<br>SELECT str_to_date(‘01,5,2013’,’%d,%m,%Y’);<br>SELECT str_to_date(‘May 1, 2013’,’%M %d,%Y’);</p>
+<p>以下在会话变量@@sql_mode设置中包含no_zero_date和no_zero_in_date时转换失败，没有包含这些设置时转换成功<br>SELECT str_to_date(‘a09:30:17’,‘a%h:%i:%s’);<br>SELECT str_to_date(‘09:30:17a’,’%h:%i:%s’);</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/18/hello-world/" data-id="ckw6cu3p50001lsdcejdp2arh" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2.%20MySQL/SQL/MySQL%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2.html" data-id="ckw6cu3qu0058lsdc3uztdjbv" data-title="" class="article-share-link">Share</a>
       
       
       
     </footer>
   </div>
   
-</article>
-
-
-
+    
   
+</article>
 
 
 </section>

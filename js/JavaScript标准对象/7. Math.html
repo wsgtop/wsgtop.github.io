@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="7. JavaScript 标准内置对象 Math属性Math.EMath.Ln2Math.Ln10Math.LOG2EMath.LOG10EMath.PIMath.SQRT1_2Math.SQRT2方法Math.abs(x)Math.acos(x)Math.acosh(x)Math.asin(x)Math.asinh(x)Math.atan(x)Math.atanh(x)Math.atan2(y">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/7.%20Math.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="7. JavaScript 标准内置对象 Math属性Math.EMath.Ln2Math.Ln10Math.LOG2EMath.LOG10EMath.PIMath.SQRT1_2Math.SQRT2方法Math.abs(x)Math.acos(x)Math.acosh(x)Math.asin(x)Math.asinh(x)Math.atan(x)Math.atanh(x)Math.atan2(y">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.117Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/7.%20Math.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.117Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="7-JavaScript-标准内置对象-Math"><a href="#7-JavaScript-标准内置对象-Math" class="headerlink" title="7. JavaScript 标准内置对象 Math"></a>7. JavaScript 标准内置对象 Math</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="Math-E"><a href="#Math-E" class="headerlink" title="Math.E"></a>Math.E</h3><h3 id="Math-Ln2"><a href="#Math-Ln2" class="headerlink" title="Math.Ln2"></a>Math.Ln2</h3><h3 id="Math-Ln10"><a href="#Math-Ln10" class="headerlink" title="Math.Ln10"></a>Math.Ln10</h3><h3 id="Math-LOG2E"><a href="#Math-LOG2E" class="headerlink" title="Math.LOG2E"></a>Math.LOG2E</h3><h3 id="Math-LOG10E"><a href="#Math-LOG10E" class="headerlink" title="Math.LOG10E"></a>Math.LOG10E</h3><h3 id="Math-PI"><a href="#Math-PI" class="headerlink" title="Math.PI"></a>Math.PI</h3><h3 id="Math-SQRT1-2"><a href="#Math-SQRT1-2" class="headerlink" title="Math.SQRT1_2"></a>Math.SQRT1_2</h3><h3 id="Math-SQRT2"><a href="#Math-SQRT2" class="headerlink" title="Math.SQRT2"></a>Math.SQRT2</h3><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Math-abs-x"><a href="#Math-abs-x" class="headerlink" title="Math.abs(x)"></a>Math.abs(x)</h3><h3 id="Math-acos-x"><a href="#Math-acos-x" class="headerlink" title="Math.acos(x)"></a>Math.acos(x)</h3><h3 id="Math-acosh-x"><a href="#Math-acosh-x" class="headerlink" title="Math.acosh(x)"></a>Math.acosh(x)</h3><h3 id="Math-asin-x"><a href="#Math-asin-x" class="headerlink" title="Math.asin(x)"></a>Math.asin(x)</h3><h3 id="Math-asinh-x"><a href="#Math-asinh-x" class="headerlink" title="Math.asinh(x)"></a>Math.asinh(x)</h3><h3 id="Math-atan-x"><a href="#Math-atan-x" class="headerlink" title="Math.atan(x)"></a>Math.atan(x)</h3><h3 id="Math-atanh-x"><a href="#Math-atanh-x" class="headerlink" title="Math.atanh(x)"></a>Math.atanh(x)</h3><h3 id="Math-atan2-y-x"><a href="#Math-atan2-y-x" class="headerlink" title="Math.atan2(y,x)"></a>Math.atan2(y,x)</h3><h3 id="Math-cbrt-x"><a href="#Math-cbrt-x" class="headerlink" title="Math.cbrt(x)"></a>Math.cbrt(x)</h3><h3 id="Math-ceil-x"><a href="#Math-ceil-x" class="headerlink" title="Math.ceil(x)"></a>Math.ceil(x)</h3><h3 id="Math-clz32-x"><a href="#Math-clz32-x" class="headerlink" title="Math.clz32(x)"></a>Math.clz32(x)</h3><h3 id="Math-cos-x"><a href="#Math-cos-x" class="headerlink" title="Math.cos(x)"></a>Math.cos(x)</h3><h3 id="Math-cosh-x"><a href="#Math-cosh-x" class="headerlink" title="Math.cosh(x)"></a>Math.cosh(x)</h3><h3 id="Math-cosh-x-1"><a href="#Math-cosh-x-1" class="headerlink" title="Math.cosh(x)"></a>Math.cosh(x)</h3><h3 id="Math-exp-x"><a href="#Math-exp-x" class="headerlink" title="Math.exp(x)"></a>Math.exp(x)</h3><h3 id="Math-expm1-x"><a href="#Math-expm1-x" class="headerlink" title="Math.expm1(x)"></a>Math.expm1(x)</h3><h3 id="Math-floor-x"><a href="#Math-floor-x" class="headerlink" title="Math.floor(x)"></a>Math.floor(x)</h3><h3 id="Math-fround-x"><a href="#Math-fround-x" class="headerlink" title="Math.fround(x)"></a>Math.fround(x)</h3><h3 id="Math-hypot-x-y-…"><a href="#Math-hypot-x-y-…" class="headerlink" title="Math.hypot([x[, y[, …]]])"></a>Math.hypot([x[, y[, …]]])</h3><h3 id="Math-imul-x-y"><a href="#Math-imul-x-y" class="headerlink" title="Math.imul(x, y)"></a>Math.imul(x, y)</h3><h3 id="Math-log-x"><a href="#Math-log-x" class="headerlink" title="Math.log(x)"></a>Math.log(x)</h3><h3 id="Math-log1p-x"><a href="#Math-log1p-x" class="headerlink" title="Math.log1p(x)"></a>Math.log1p(x)</h3><h3 id="Math-log10-x"><a href="#Math-log10-x" class="headerlink" title="Math.log10(x)"></a>Math.log10(x)</h3><h3 id="Math-log2-x"><a href="#Math-log2-x" class="headerlink" title="Math.log2(x)"></a>Math.log2(x)</h3><h3 id="Math-max-x-y-…"><a href="#Math-max-x-y-…" class="headerlink" title="Math.max([x[, y[, …]]])"></a>Math.max([x[, y[, …]]])</h3><h3 id="Math-min-x-y-…"><a href="#Math-min-x-y-…" class="headerlink" title="Math.min([x[, y[, …]]])"></a>Math.min([x[, y[, …]]])</h3><h3 id="Math-pow-x-y"><a href="#Math-pow-x-y" class="headerlink" title="Math.pow(x, y)"></a>Math.pow(x, y)</h3><h3 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h3><h3 id="Math-round-x"><a href="#Math-round-x" class="headerlink" title="Math.round(x)"></a>Math.round(x)</h3><h3 id="Math-sign-x"><a href="#Math-sign-x" class="headerlink" title="Math.sign(x)"></a>Math.sign(x)</h3><h3 id="Math-sin-x"><a href="#Math-sin-x" class="headerlink" title="Math.sin(x)"></a>Math.sin(x)</h3><h3 id="Math-sinh-x"><a href="#Math-sinh-x" class="headerlink" title="Math.sinh(x)"></a>Math.sinh(x)</h3><h3 id="Math-sqrt-x"><a href="#Math-sqrt-x" class="headerlink" title="Math.sqrt(x)"></a>Math.sqrt(x)</h3><h3 id="Math-tan-x"><a href="#Math-tan-x" class="headerlink" title="Math.tan(x)"></a>Math.tan(x)</h3><h3 id="Math-tanh-x"><a href="#Math-tanh-x" class="headerlink" title="Math.tanh(x)"></a>Math.tanh(x)</h3><h3 id="Math-trunc-x"><a href="#Math-trunc-x" class="headerlink" title="Math.trunc(x)"></a>Math.trunc(x)</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/JS/JavaScript%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/7.%20Math.html" data-id="ckw6cu3q20025lsdchrym8y5o" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

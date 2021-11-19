@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="redis clusterredis3.0后加入了redis-cluster　　如果你的数据量很少，主要是承载高并发高性能的场景，比如你的缓存一般就几个 G，单机就足够了，可以使用 replication，一个 master 多个 slaves，要几个 slave 跟你要求的读吞吐量有关，然后自己搭建一个 sentinel 集群去保证 redis 主从架构的高可用性。　　redis的哨兵模式基本已">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/redis%20cluster%E9%9B%86%E7%BE%A4.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="redis clusterredis3.0后加入了redis-cluster　　如果你的数据量很少，主要是承载高并发高性能的场景，比如你的缓存一般就几个 G，单机就足够了，可以使用 replication，一个 master 多个 slaves，要几个 slave 跟你要求的读吞吐量有关，然后自己搭建一个 sentinel 集群去保证 redis 主从架构的高可用性。　　redis的哨兵模式基本已">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.164Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.164Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/redis%20cluster%E9%9B%86%E7%BE%A4.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.164Z" itemprop="datePublished">2021-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="redis-cluster"><a href="#redis-cluster" class="headerlink" title="redis cluster"></a>redis cluster</h1><p>redis3.0后加入了redis-cluster<br>　　如果你的数据量很少，主要是承载高并发高性能的场景，比如你的缓存一般就几个 G，单机就足够了，可以使用 replication，一个 master 多个 slaves，要几个 slave 跟你要求的读吞吐量有关，然后自己搭建一个 sentinel 集群去保证 redis 主从架构的高可用性。<br>　　redis的哨兵模式基本已经可以实现高可用，读写分离 ，但是在这种模式下每台redis服务器都存储相同的数据，很浪费内存，<br>所以在redis3.0上加入了cluster模式，实现的redis的分布式存储，也就是说每台redis节点上存储不同的内容。<br>　　redis cluster，主要是针对海量数据+高并发+高可用的场景。redis cluster支撑N个 redis master node，每个master node都可以挂载多个slave node。这样整个redis就可以横向扩容了。如果你要支撑更大数据量的缓存，那就横向扩容更多的master节点，每个master节点就能存放更多的数据了</p>
+<p>Redis-Cluster集群<br>特点：</p>
+<pre><code>1. 将数据分片
+2. 提供内置的高可用支持
+</code></pre>
+<p>redis cluster 介绍</p>
+<pre><code>自动将数据进行分片，每个 master 上放一部分数据提供内置的高可用支持，部分 master 不可用时，还是可以继续工作的在 redis cluster 架构下，
+每个 redis 要放开两个端口号，比如一个是 6379，另外一个就是 加 1w 的端口号，比如 16379。
+16379 端口号是用来进行节点间通信的，也就是 cluster bus 的东西，cluster bus 的通信，用来进行故障检测、配置更新、故障转移授权。
+cluster bus 用了另外一种二进制的协议，gossip 协议，用于节点间进行高效的数据交换，占用更少的网络带宽和处理时间。
+</code></pre>
+<p> Redis-Cluster采用无中心结构,它的特点如下：</p>
+<pre><code>所有的redis节点彼此互联(PING-PONG机制),内部使用二进制协议优化传输速度和带宽。
+节点的fail是通过集群中超过半数的节点检测失效时才生效。
+客户端与redis节点直连,不需要中间代理层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可。
+</code></pre>
+<p>工作方式：</p>
+<pre><code>在redis的每一个节点上，都有这么两个东西，一个是插槽（slot），它的的取值范围是：0-16383。还有一个就是cluster，可以理解为是一个集群管理的插件。
+当我们的存取的key到达的时候，redis会根据crc16的算法得出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，通过这个值，
+去找到对应的插槽所对应的节点，然后直接自动跳转到这个对应的节点上进行存取操作。
+
+为了保证高可用，redis-cluster集群引入了主从模式，一个主节点对应一个或者多个从节点，当主节点宕机的时候，就会启用从节点。
+当其它主节点ping一个主节点A时，如果半数以上的主节点与A通信超时，那么认为主节点A宕机了。如果主节点A和它的从节点A1都宕机了，那么该集群就无法再提供服务了
+</code></pre>
+<p>基本通信原理：</p>
+<pre><code>集群元数据的维护有两种方式：集中式、Gossip 协议。redis cluster 节点间采用 gossip 协议进行通信。
+
+集中式是将集群元数据（节点信息、故障等等）集中存储在某个节点上。
+优点: 元数据的读取和更新，时效性非常好，一旦元数据出现了变更，就立即更新到集中式的存储中，其它节点读取的时候就可以感知到；
+缺点：所有的元数据的更新压力全部集中在一个地方，可能会导致元数据的存储有压力。
+
+Gossip 协议，所有节点都持有一份元数据，不同的节点如果出现了元数据的变更，就不断将元数据发送给其它的节点，让其它节点也进行元数据的变更。
+优点：元数据的更新比较分散，不是集中在一个地方，更新请求会陆陆续续打到所有节点上去更新，降低了压力；
+缺点：元数据的更新有延时，可能导致集群中的一些操作会有一些滞后。
+
+10000 端口：每个节点都有一个专门用于节点间通信的端口，就是自己提供服务的端口号+10000，比如7001，那么用于节点间通信的就是 17001 端口。每个节点每隔一段时间都会往另外几个节点发送 ping 消息，同时其它几个节点接收到 ping 之后返回 pong。
+交换的信息：信息包括故障信息，节点的增加和删除，hash slot 信息等等。
+</code></pre>
+<p>gossip 协议</p>
+<pre><code>gossip 协议包含多种消息，包含 ping、pong、meet、fail 等等。
+meet：某个节点发送 meet 给新加入的节点，让新节点加入集群中，然后新节点就会开始与其它节点进行通信。`redis-trib.rb add-node`其实内部就是发送了一个 gossip meet 消息给新加入的节点，通知那个节点去加入我们的集群。
+ping：每个节点都会频繁给其它节点发送 ping，其中包含自己的状态还有自己维护的集群元数据，互相通过 ping 交换元数据。
+pong：返回ping和meeet，包括自己的状态和其他信息，也用于信息广播和更新。
+fail：某个节点判断另一个节点fail之后，就发送fail给其他节点，通知其他节点说，某个节点宕机啦。
+</code></pre>
+<p>ping 消息深入</p>
+<pre><code>ping 时要携带一些元数据，如果很频繁，可能会加重网络负担。
+每个节点每秒会执行 10 次 ping，每次会选择 5 个最久没有通信的其它节点。
+当然如果发现某个节点通信延时达到了 cluster_node_timeout / 2，那么立即发送 ping，避免数据交换延时过长，落后的时间太长了。
+比如说，两个节点之间都 10 分钟没有交换数据了，那么整个集群处于严重的元数据不一致的情况，就会有问题。
+所以 cluster_node_timeout 可以调节，如果调得比较大，那么会降低 ping 的频率。
+每次 ping，会带上自己节点的信息，还有就是带上 1/10 其它节点的信息，发送出去，进行交换。至少包含 3 个其它节点的信息，最多包含 总节点数减 2 个其它节点的信息。
+</code></pre>
+<p>分布式寻址算法</p>
+<pre><code>hash 算法
+　　来了一个 key，首先计算 hash 值，然后对节点数取模。
+然后打在不同的 master 节点上。一旦某一个master 节点宕机，所有请求过来，都会基于最新的剩余 master 节点数去取模，尝试去取数据。这会导致大部分的请求过来，全部无法拿到有效的缓存，导致大量的请求涌入数据库。
+
+一致性 hash 算法
+　　一致性 hash 算法将整个 hash 值空间组织成一个虚拟的圆环，整个空间按顺时针方向组织，下一步将各个 master 节点（使用服务器的 ip 或主机名）进行 hash。这样就能确定每个节点在其哈希环上的位置。
+来了一个 key，首先计算 hash 值，并确定此数据在环上的位置，从此位置沿环顺时针“行走”，遇到的第一个 master 节点就是 key 所在位置。
+在一致性哈希算法中，如果一个节点挂了，受影响的数据仅仅是此节点到环空间前一个节点（沿着逆时针方向行走遇到的第一个节点）之间的数据，其它不受影响。增加一个节点也同理。
+然而，一致性哈希算法在节点太少时，容易因为节点分布不均匀而造成缓存热点的问题。
+为了解决这种热点问题，一致性 hash 算法引入了虚拟节点机制，即对每一个节点计算多个 hash，每个计算结果位置都放置一个虚拟节点。这样就实现了数据的均匀分布，负载均衡。
+
+redis cluster 的 hash slot 算法
+　　redis cluster 有固定的 16384 个 hash slot，对每个 key 计算 CRC16 值，然后对 16384 取模，可以获取 key 对应的 hash slot。
+redis cluster 中每个 master 都会持有部分 slot，比如有 3 个 master，那么可能每个 master 持有5000 多个 hash slot。
+hash slot 让 node 的增加和移除很简单，增加一个 master，就将其他 master的 hash slot 移动部分过去，减少一个 master，就将它的 hash slot 移动到其他 master 上去。移动hash slot 的成本是非常低的。
+客户端的 api，可以对指定的数据，走同一个 hash slot，通过 hash tag 来实现。
+任何一台机器宕机，另外两个节点，不影响的。因为 key 找的是 hash slot，不是机器。
+</code></pre>
+<p>判断节点宕机</p>
+<pre><code>如果一个节点认为另外一个节点宕机，那么就是 pfail，主观宕机。
+如果多个节点都认为另外一个节点宕机了，那么就是 fail，客观宕机，跟哨兵的原理几乎一样，sdown，odown。
+在 cluster-node-timeout 内，某个节点一直没有返回 pong，那么就被认为 pfail。
+如果一个节点认为某个节点 pfail 了，那么会在 gossip ping 消息中，ping 给其他节点，如果超过半数的节点都认为 pfail 了，那么就会变成 fail。
+</code></pre>
+<p>从节点过滤</p>
+<pre><code>对宕机的 master node，从其所有的 slave node 中，选择一个切换成 master node。
+检查每个 slave node 与 master node 断开连接的时间，如果超过了 cluster-node-timeout *cluster-slave-validity-factor，那么就没有资格切换成 master。
+</code></pre>
+<p>从节点选举</p>
+<pre><code>每个从节点，都根据自己对 master 复制数据的 offset，来设置一个选举时间，offset 越大（复制数据越多）的从节点，选举时间越靠前，优先进行选举。
+所有的 master node 开始 slave 选举投票，给要进行选举的 slave 进行投票，如果大部分 master node（N/2 + 1）都投票给了某个从节点，那么选举通过，那个从节点可以切换成 master。
+从节点执行主备切换，从节点切换为主节点。
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/%E6%95%B0%E6%8D%AE%E5%BA%93/1.%20Redis/redis%E9%9D%A2%E8%AF%95%E7%82%B9/redis%20cluster%E9%9B%86%E7%BE%A4.html" data-id="ckw6cu3qh003llsdc12wb7u36" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

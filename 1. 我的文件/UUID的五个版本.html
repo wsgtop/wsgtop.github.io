@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="UUID的五个版本概念全称是 Universally Unique Identifier，中文为通用唯一识别码。构成：由一组32位数的16进制数字所构成。 格式：以连字号分为五段，表现形式为8-4-4-4-12的32个字符，如下所示：xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx如：30385d15-0a88-42eb-bc43-2c000e9f778c其中 M 与 N">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/1.%20%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/UUID%E7%9A%84%E4%BA%94%E4%B8%AA%E7%89%88%E6%9C%AC.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="UUID的五个版本概念全称是 Universally Unique Identifier，中文为通用唯一识别码。构成：由一组32位数的16进制数字所构成。 格式：以连字号分为五段，表现形式为8-4-4-4-12的32个字符，如下所示：xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx如：30385d15-0a88-42eb-bc43-2c000e9f778c其中 M 与 N">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-22T11:10:42.652Z">
+<meta property="article:modified_time" content="2021-09-22T11:10:42.652Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/1.%20%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/UUID%E7%9A%84%E4%BA%94%E4%B8%AA%E7%89%88%E6%9C%AC.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-22T11:10:42.652Z" itemprop="datePublished">2021-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="UUID的五个版本"><a href="#UUID的五个版本" class="headerlink" title="UUID的五个版本"></a>UUID的五个版本</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>全称是 Universally Unique Identifier，中文为通用唯一识别码。<br>构成：由一组32位数的16进制数字所构成。</p>
+<p><strong>格式：</strong><br>以连字号分为五段，表现形式为8-4-4-4-12的32个字符，如下所示：<br>xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx<br>如：<code>30385d15-0a88-42eb-bc43-2c000e9f778c</code><br>其中 M 与 N 都有特殊含义：<br>M 表示 UUID版本，目前只有五个版本，即只会出现1，2，3，4，5（下文会介绍这五个版本）<br>数字 N 的一至三个最高有效位表示 UUID 变体，目前只会出现 8，9，a，b 四种情况。</p>
+<p>总长度 36，由 32 个 16 进制字符和 4 个连字符组成。连字符仅用于增加可读性，实际的精度为<br>一个 16 进制字符为 2^4=4bit，32 个则为 32*4bit=128bit</p>
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p><strong>（1）v1 (timestamp)</strong><br>    <strong>原理：</strong><br>  timestamp + MAC 地址。<br>  48bit 主机的 Mac 地址<br>  60bit 时间戳 (13-14bit 作为时间序列)<br>  每个节点每秒钟可生成 1630 亿个，也就是说每毫秒 163 个<br>    <strong>缺点：</strong><br>  机器的MAC地址出厂后不能保证完全唯一，且之后 MAC 地址也可手动修改<br>  MAC 地址的暴露会造成了隐私与安全问题<br>  若一台机子上的两个进程同时跑，有可能出现重复问题</p>
+<p><strong>（2）v2 (timestamp)</strong><br>  <strong>原理：</strong><br>  基于 v1 的基础上优化了下，更安全。<br>  48bit 主机的 Mac 地址<br>  40bit 域名/ID<br>  28bit 时间戳（6bit 作为时间序列）<br>  允许一个节点存在 1 万亿个 域名/ID 对象，每个对象每 7 秒产生一个 UUID</p>
+<p><strong>（3）v3 (namespace)</strong><br>  <strong>原理：</strong><br>  基于 namespace + 输入内容 进行 MD5。<br>  将值与指定的命名空间拼接后，做 hash 运算，再做一些额外的固定变换得到最终的 UUID</p>
+<p><strong>（4）v4 (random)</strong><br>  <strong>原理：</strong><br>  基于随机数。<br>  6bit 标记版本<br>  122bit 随机数<br>  每秒生成 10 亿个，大约需要 85 年才有重复的可能，所以在正常应用情形下这种碰撞概率可以忽略<br>  这个版本的UUID是使用最多的。</p>
+<p><strong>（5）v5 (namespace)</strong><br>  <strong>原理：</strong><br>  跟 V3 差不多，只是把散列算法的 MD5 变成 SHA1。<br>  将值与指定的命名空间拼接后，做 hash 运算，再做一些额外的固定变换得到最终的 UUID<br>  V5 区别于 V3 是使用了更不容易碰撞的 hash 算法，前者 sha1，后者 md5。<br>  注意值不变的情况下生成的 UUID 相同</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li>V4 - 首选</li>
+<li>V1 - 如果需要反向解析主机 Mac 地址</li>
+<li>V5 - 如果需要根据特定的值生成，而且在值不变的情况下生成的 UUID 不变。<br>可用于加密用户密码，比如我的密码是 123456，sha1 固定为7c4a8d09ca3762af61e59520943dc26494f8941b，所以一旦数据库数据泄露，很容易枚举出简单的密码原文。但使用 v5 算法后加入了特定的 namespace，会得到完全不同，切不具备普遍性的 UUID 串，这样就很难破解出密码原文了。</li>
+<li>V3 - 不推荐，用 V5 替代</li>
+<li>V2 - 一般不会用到</li>
+</ul>
+<p>参考地址<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/76e3a75605ed">简书</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xjnotxj/p/12162733.html">博客园</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/1.%20%E6%88%91%E7%9A%84%E6%96%87%E4%BB%B6/UUID%E7%9A%84%E4%BA%94%E4%B8%AA%E7%89%88%E6%9C%AC.html" data-id="ckw6cu3pe0006lsdcd5rm1cp6" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

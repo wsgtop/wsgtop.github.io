@@ -6,11 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="1. 强类型和弱类型解释两组区分不同编程语言时，提及的名词分别为强类型和弱类型,静态类型和动态类型，分别从类型安全和类型检查区分了强弱类型和静动类型。 1.1. 通过类型安全区分 分为强类型和弱类型强类型：语言层面限制了实参类型和形参类型必须相同，如果传入其他类型的值会报错，只有在传入之前转化为响应的类型,才可以弱类型:完全相反,弱类型语言层面不会限制实参的类型，即便是整型的数字，传入字符串类型语">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/TS/%E5%9F%BA%E7%A1%80/%E5%BC%BA%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%B1%E7%B1%BB%E5%9E%8B.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 强类型和弱类型解释两组区分不同编程语言时，提及的名词分别为强类型和弱类型,静态类型和动态类型，分别从类型安全和类型检查区分了强弱类型和静动类型。 1.1. 通过类型安全区分 分为强类型和弱类型强类型：语言层面限制了实参类型和形参类型必须相同，如果传入其他类型的值会报错，只有在传入之前转化为响应的类型,才可以弱类型:完全相反,弱类型语言层面不会限制实参的类型，即便是整型的数字，传入字符串类型语">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-28T14:09:36.133Z">
+<meta property="article:modified_time" content="2021-09-28T14:09:36.133Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,59 +73,34 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/11/18/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-11-18T12:50:52.715Z" itemprop="datePublished">2021-11-18</time>
+    <a href="/TS/%E5%9F%BA%E7%A1%80/%E5%BC%BA%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%B1%E7%B1%BB%E5%9E%8B.html" class="article-date">
+  <time class="dt-published" datetime="2021-09-28T14:09:36.133Z" itemprop="datePublished">2021-09-28</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/11/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h1 id="1-强类型和弱类型"><a href="#1-强类型和弱类型" class="headerlink" title="1. 强类型和弱类型"></a>1. 强类型和弱类型</h1><p>解释两组区分不同编程语言时，提及的名词分别为强类型和弱类型,静态类型和动态类型，分别从类型安全和类型检查区分了强弱类型和静动类型。</p>
+<h2 id="1-1-通过类型安全区分-分为强类型和弱类型"><a href="#1-1-通过类型安全区分-分为强类型和弱类型" class="headerlink" title="1.1. 通过类型安全区分 分为强类型和弱类型"></a>1.1. 通过类型安全区分 分为强类型和弱类型</h2><p>强类型：语言层面限制了实参类型和形参类型必须相同，如果传入其他类型的值会报错，只有在传入之前转化为响应的类型,才可以<br/><br>弱类型:完全相反,弱类型语言层面不会限制实参的类型，即便是整型的数字，传入字符串类型语法上也是没问题的<br/><br>综上所述：强类型不允许有任意的隐式类型转换，而弱类型允许有任意的隐式类型转换，比如javascript为弱类型语言，会把隐式转化为任意类型，调用的时候语法层面都不会报错</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/18/hello-world/" data-id="ckw6cu3p50001lsdcejdp2arh" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/TS/%E5%9F%BA%E7%A1%80/%E5%BC%BA%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%B1%E7%B1%BB%E5%9E%8B.html" data-id="ckw6cu3q8002qlsdcbe0xa00s" data-title="" class="article-share-link">Share</a>
       
       
       
     </footer>
   </div>
   
-</article>
-
-
-
+    
   
+</article>
 
 
 </section>
