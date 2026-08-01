@@ -1,8 +1,7 @@
 name: Deploy Nuxt to GitHub Pages
 on:
   push:
-    branches:
-      - nuxt-blog # 监听 nuxt-blog 分支的推送
+    branches: ["nuxt-blog"] # 监听 nuxt-blog 分支的推送
 
 jobs:
   build:
@@ -17,7 +16,7 @@ jobs:
       - run: npm install
 
       # 核心：执行我们在 package.json 中配置好的多环境打包脚本
-      - run: npm run generate:github
+      - run: node script/build-search-index.js && nuxt generate --dotenv .env.github 
 
       # 将构建产物上传为 Artifact
       - name: Upload artifact
