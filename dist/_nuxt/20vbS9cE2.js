@@ -1,0 +1,1 @@
+import{w as e,x as t}from"./Cszm7yyF.js";var n=t({name:`DocumentDrivenNotFound`,render(){return e(`div`,`Document not found`)}}),r=Object.assign(n,{__name:`DocumentDrivenNotFound`});export{r as default};

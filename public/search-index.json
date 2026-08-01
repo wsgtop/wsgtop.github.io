@@ -1,0 +1,37 @@
+[
+  {
+    "title": "从零开始学提示工程：让 AI 成为你的生产力搭档",
+    "path": "/articles/ai-prompt-engineering",
+    "category": "人工智能",
+    "tags": [],
+    "description": "系统介绍大语言模型提示工程的核心原则与常用技巧，从入门到进阶，教你写出高效、准确、可复用的高质量 Prompt。"
+  },
+  {
+    "title": "Nuxt 4 Guide",
+    "path": "/articles/nuxt-4-guide",
+    "category": "Nuxt 4",
+    "tags": [],
+    "description": "A comprehensive guide to getting started with Nuxt 4, including installation, configuration, and best practices."
+  },
+  {
+    "title": "一名远程开发者的生活仪式感：把每一天过成想要的样子",
+    "path": "/articles/remote-developer-life",
+    "category": "生活随笔",
+    "tags": [],
+    "description": "分享作为一名全职远程工作开发者，在工作、生活、健康之间寻找平衡的真实经验与踩过的坑。"
+  },
+  {
+    "title": "TypeScript 高级类型体操：从入门到上瘾",
+    "path": "/articles/typescript-advanced-types",
+    "category": "TypeScript",
+    "tags": [],
+    "description": "深入解析 TypeScript 类型系统的高阶用法：条件类型、映射类型、模板字面量、infer 推断等，掌握这些你也能写出类型安全的工具库。"
+  },
+  {
+    "title": "Vue 3 组合式 API 实战：从选项式到 Composition 的迁移指南",
+    "path": "/articles/vue3-composition-api-practice",
+    "category": "Vue 3",
+    "tags": [],
+    "description": "详细介绍 Vue 3 组合式 API 的核心理念与实战用法，对比选项式 API 的差异，并提供渐进式迁移的最佳实践。"
+  }
+]
