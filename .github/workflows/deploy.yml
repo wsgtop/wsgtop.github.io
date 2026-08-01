@@ -1,0 +1,40 @@
+name: Deploy Nuxt to GitHub Pages
+on:
+  push:
+    branches: ["nuxt-blog"] # 监听 nuxt-blog 分支的推送
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm install
+
+      # 核心：执行我们在 package.json 中配置好的多环境打包脚本
+      - run: node script/build-search-index.js && nuxt generate --dotenv .env.github 
+
+      # 将构建产物上传为 Artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 核心修改：将路径改为 dist
+          path: ./dist
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
