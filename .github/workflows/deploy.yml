@@ -23,8 +23,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 核心修改：将路径改为 dist
-          path: ./dist
+          # ⚠️  Nuxt 4 generate 的静态产物输出在 .output/public（不是 dist！）
+          #     错误地写 ./dist 会导致上传空目录 → Pages 重新 fallback 到 README
+          path: ./.output/public
 
   deploy:
     needs: build

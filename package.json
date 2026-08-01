@@ -23,6 +23,7 @@
   "devDependencies": {
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/typography": "^0.5.20",
-    "less": "^4.8.1"
+    "less": "^4.8.1",
+    "terser": "^5.34.0"
   }
 }

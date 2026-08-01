@@ -93,12 +93,73 @@ export default defineNuxtConfig({
 
   // ──────────────────────────────────────────────
   // 3. Nitro 预渲染配置（SSG 静态生成必须）
+  //    crawlLinks: true → 从首页自动爬取所有链接生成 HTML + payload
+  //                     → 避免刷新文章页 404，同时 payload 按页精确生成
   // ──────────────────────────────────────────────
   nitro: {
     prerender: {
-      routes: ["/"],  // 明确指定必须预渲染的路由入口
-      // 如需预渲染所有动态路由，可添加 crawlLinks: true
-      // crawlLinks: true,
+      routes: ["/"],
+      crawlLinks: true,
+    },
+  },
+
+  // ──────────────────────────────────────────────
+  // 4. Vite 构建优化（代码压缩 + Chunk 合并，提升首屏性能）
+  //
+  //    关于 Gzip/Brotli 压缩的澄清：
+  //    GitHub Pages 通过 Fastly CDN 自动做传输层 Gzip 压缩，
+  //    不需要手动生成 .gz / .br 文件（上传了也不会自动加 Content-Encoding）。
+  //    但构建端的代码压缩必须开——它让源文件本身更小，与 CDN 压缩是叠加关系。
+  //
+  //    只在 environments.client 中配置，避免破坏 Nitro SSR 侧的样式占位符解析。
+  // ──────────────────────────────────────────────
+  vite: {
+    environments: {
+      client: {
+        build: {
+          // terser 压缩率比默认 esbuild 高 5-10%，构建慢 1.5x 左右
+          // 部署是 CI 自动跑，多花 10 秒换用户少加载 5-10KB 很值
+          minify: "terser",
+          terserOptions: {
+            compress: {
+              drop_console: true,   // 生产环境移除 console.log
+              drop_debugger: true,  // 移除 debugger 语句
+              passes: 2,            // 两轮压缩（更高压缩率）
+            },
+          },
+          sourcemap: false,        // 不生成 .map（防源码泄露 + 省体积）
+
+          // Chunk 合并：按"稳定程度"分块，最大化浏览器缓存命中率
+          //   框架核心（几年不更）→ core-vendor，长期缓存
+          //   博客生态依赖（月更）→ content-vendor
+          //   业务页面（日常更）→ Nuxt 默认按路由拆
+          rollupOptions: {
+            output: {
+              manualChunks(id) {
+                if (
+                  id.includes("node_modules/vue/") ||
+                  id.includes("node_modules/@vue/") ||
+                  id.includes("node_modules/vue-router/") ||
+                  id.includes("node_modules/nuxt/") ||
+                  id.includes("node_modules/h3/") ||
+                  id.includes("node_modules/nitropack/")
+                ) {
+                  return "core-vendor";
+                }
+                if (
+                  id.includes("node_modules/@nuxt/content/") ||
+                  id.includes("node_modules/@nuxtjs/tailwindcss/") ||
+                  id.includes("node_modules/tailwindcss/") ||
+                  id.includes("node_modules/@nuxt/icon/") ||
+                  id.includes("node_modules/@iconify/")
+                ) {
+                  return "content-vendor";
+                }
+              },
+            },
+          },
+        },
+      },
     },
   },
 });
@@ -248,13 +309,13 @@ jobs:
 
       # ──────────────────────────────────────────────
       # 步骤 5：上传构建产物
-      # Nuxt 4 generate 的静态产物输出在 ./dist 目录
-      # (旧版 Nuxt 3 可能是 .output/public，注意区分)
+      # ⚠️  Nuxt 4 generate 的静态产物输出在 ./.output/public（不是 dist！）
+      #     错误地写 ./dist 会导致上传空目录 → Pages 重新 fallback 到 README
       # ──────────────────────────────────────────────
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
   # ============================================================
   # 部署 Job：等待构建成功 → 将产物发布到 GitHub Pages
@@ -290,7 +351,7 @@ jobs:
 |--------|----------|----------|
 | `node-version` | `"24"` 或 `"22"` | 使用 `"20"` 或 `"18"`（Nuxt 4 不兼容） |
 | 构建命令 | `npm run generate:github` | 裸写 `nuxt generate`（报 `command not found`） |
-| `upload-pages-artifact` 的 path | `./dist` (Nuxt 4) | 写 `./.output/public`（Nuxt 3 旧路径） |
+| `upload-pages-artifact` 的 path | `./.output/public` (Nuxt 4) | 写 `./dist`（不存在，上传空目录导致显示 README） |
 | `permissions` | 在 deploy job 中声明 `pages` 和 `id-token` 为 write | 未声明或放在 build job 中 |
 | `branches` 触发 | 与实际推送的分支名完全一致（大小写敏感） | 本地分支名是 `main`，YAML 写了 `master` |
 | `cache: "npm"` | 仓库需有 `package-lock.json` | 只有 `pnpm-lock.yaml` 却用 `cache: "npm"` |
@@ -457,7 +518,7 @@ npm run generate:github
 | **原因** | 静态站点生成时，动态路由对应的 HTML 文件没有被预渲染出来 |
 | **修复 1** | 在 `nitro.prerender.routes` 中显式列出所有要预渲染的路由 |
 | **修复 2** | 添加 `crawlLinks: true` 让 Nitro 自动从首页爬取所有链接并生成：<br>`nitro: { prerender: { routes: ["/"], crawlLinks: true } }` |
-| **验证** | 构建后检查 `dist/articles/` 目录下是否有对应 HTML 文件 |
+| **验证** | 构建后检查 `.output/public/articles/` 目录下是否有对应 HTML 文件 |
 
 ---
 
@@ -501,8 +562,8 @@ npm run clean
 npm run generate:github
 
 # 3. 验证构建产物结构
-#    dist/ 目录下应该有 index.html、_nuxt/、200.html、404.html 等
-dir dist
+#    .output/public/ 目录下应该有 index.html、_nuxt/、200.html、404.html 等
+dir .output\public
 
 # 4. 本地预览静态站点（模拟 GitHub Pages 环境）
 npm run preview
@@ -554,8 +615,10 @@ logs
 - [ ] `deploy.yml` 的 `node-version` 是否 >= 22？
 - [ ] 构建命令是否使用 `npm run generate:github`（而非裸 `nuxt generate`）？
 - [ ] `nuxt.config.ts` 的 `baseURL` 是否与站点类型匹配？<br>　　· 用户级（仓库名 `.github.io` 结尾）→ `"/"` 或不设置<br>　　· 项目级（普通仓库）→ `"/<repo>/"`（两端斜杠）
-- [ ] `upload-pages-artifact` 的 path 是否为 `./dist`？
+- [ ] `upload-pages-artifact` 的 path 是否为 `./.output/public`？
 - [ ] `on.push.branches` 是否与实际推送分支一致？
+- [ ] `nitro.prerender` 是否开启了 `crawlLinks: true`？
+- [ ] Vite 构建优化是否在 `environments.client` 中配置（避免 SSR 样式占位符冲突）？
 - [ ] 本地先跑过 `npm run generate:github && npm run preview` 验证过？
 
 以上全部 ✅，部署成功率 > 99%。
