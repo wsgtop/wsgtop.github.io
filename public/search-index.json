@@ -14,6 +14,13 @@
     "description": "A comprehensive guide to getting started with Nuxt 4, including installation, configuration, and best practices."
   },
   {
+    "title": "Nuxt 4.5 部署 GitHub Pages 完整方案：从零到上线的踩坑指南",
+    "path": "/articles/Nuxt4.5-GitHubPages-部署方案",
+    "category": "Nuxt 4",
+    "tags": [],
+    "description": "针对 Nuxt 4.5.x 版本的完整 GitHub Pages 部署教程，涵盖版本要求、baseURL 配置、Actions 工作流、多环境变量，以及 8 个高频踩坑问题的排查与修复方案。"
+  },
+  {
     "title": "一名远程开发者的生活仪式感：把每一天过成想要的样子",
     "path": "/articles/remote-developer-life",
     "category": "生活随笔",
