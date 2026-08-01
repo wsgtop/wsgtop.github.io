@@ -62,12 +62,22 @@ GitHub Pages 部署的核心在于 **baseURL** 和 **静态生成配置**。以�
 // nuxt.config.ts
 export default defineNuxtConfig({
   // ──────────────────────────────────────────────
-  // 1. 基础路径（GitHub Pages 子路径部署的核心）
-  //    仓库名格式为 <username>.github.io 时，路径必须匹配
-  //    如果是普通仓库 <username>/<repo>，应为 "/<repo>/"
+  // 1. 基础路径（GitHub Pages 部署最容易写错的配置）
+  //    ⚠️  分两种情况，千万不能搞混！
+  //
+  //    情况 A：仓库名是 <username>.github.io（用户/组织级站点）
+  //           → 最终 URL：https://<username>.github.io/
+  //           → 正确配置：baseURL: "/"  或不设置（默认就是 /）
+  //           → ❌ 绝对不能写成 "/<username>.github.io/"！否则路径双层嵌套
+  //
+  //    情况 B：普通仓库，如 <username>/my-blog（项目级站点）
+  //           → 最终 URL：https://<username>.github.io/my-blog/
+  //           → 正确配置：baseURL: "/my-blog/"
+  //
+  //    本项目属于情况 A（wsgtop.github.io），所以配 "/"
   // ──────────────────────────────────────────────
   app: {
-    baseURL: "/wsgtop.github.io/",  // ⚠️ 必须与你的 Pages URL 路径一致
+    baseURL: "/",  // ✅ 用户级 Pages 站点，根路径，无任何前缀
     // ... 其他 head 配置
   },
 
@@ -94,9 +104,15 @@ export default defineNuxtConfig({
 });
 ```
 
-**⚠️ baseURL 注意事项**：
-- 本项目仓库名是 `wsgtop.github.io`，属于用户级 Pages 站点，因此 `baseURL` 设置为 `"/wsgtop.github.io/"`
-- **开头和结尾都必须有斜杠**，否则静态资源路径会拼接错误
+**⚠️ baseURL 注意事项（GitHub Pages 类型判断口诀）**：
+
+> 一看仓库名结尾：是不是 `<username>.github.io`？
+> - **是 → 用户/组织级站点** → `baseURL: "/"` 或不写
+> - **不是 → 项目级站点** → `baseURL: "/<仓库名>/"`
+
+- **开头和结尾都必须有斜杠**（项目级场景），否则静态资源路径会拼接错误
+- 本项目仓库名是 `wsgtop.github.io`，**用户级站点**，所以 `baseURL` 必须是 `"/"`
+- 常见反例：用户级站点错误地写成 `"/wsgtop.github.io/"` → 会导致 URL 双层嵌套 `https://xxx.github.io/wsgtop.github.io/_nuxt/...`，所有资源 404 并报 MIME type 错误（就是本次部署遇到的问题）
 - 如果你的仓库是普通仓库（如 `my-blog`），URL 是 `https://user.github.io/my-blog/`，则 baseURL 应为 `"/my-blog/"`
 
 ### 2.2 package.json 脚本配置
@@ -319,9 +335,9 @@ git push origin nuxt-blog
 4. 展开 `deploy` job → 最后一行应显示 `Pages deployed successfully`
 
 **验证路径 2：直接访问网站**
-部署成功后访问 `https://wsgtop.github.io/wsgtop.github.io/`，应看到：
+部署成功后访问 `https://wsgtop.github.io/`（⚠️ 用户级站点没有路径后缀），应看到：
 - ✅ Nuxt 博客首页正常渲染（不是 README.md）
-- ✅ 静态资源（CSS/JS/字体）加载成功，无 404
+- ✅ 静态资源（CSS/JS/字体）加载成功，无 404，DevTools Console 无 MIME type 错误
 - ✅ 点击导航路由跳转正常，刷新不 404
 - ✅ 图片/字体等资源路径正确
 
@@ -383,19 +399,54 @@ npm WARN EBADENGINE }
 
 ---
 
-### 问题 5：构建成功但网站样式/JS 丢失，全是 404
+### 问题 5：构建成功但样式/JS 丢失 — 404 或 MIME type 错误（`text/css`）
 
-打开浏览器 DevTools → Network，看到资源请求是 404，且路径没有前缀：
+这是 GitHub Pages 部署 **最高频的坑**，表现为两种形态，本质都是 `app.baseURL` 与 Pages 类型不匹配：
+
+---
+
+#### 形态 A：用户级站点多写了前缀（本次遇到的问题 ⚠️）
+**控制台报错：**
 ```
-❌ https://wsgtop.github.io/_nuxt/entry.abc.js  (404)
-✅ 应该是 https://wsgtop.github.io/wsgtop.github.io/_nuxt/entry.abc.js
+❌ Failed to load module script: Expected a JavaScript module script
+   but the server responded with a MIME type of "text/css".
+```
+DevTools → Network 里资源 URL 出现**双层嵌套**：
+```
+URL：https://wsgtop.github.io/wsgtop.github.io/_nuxt/entry.xxx.js
+                          ^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^
+                          域名部分             多余的路径前缀
 ```
 
 | 项 | 说明 |
 |----|------|
-| **原因** | `nuxt.config.ts` 的 `app.baseURL` 配置错误 |
-| **修复** | 设为 `baseURL: "/wsgtop.github.io/"`，注意两端斜杠不能少 |
-| **验证命令** | `npm run generate:github` 后打开 `dist/index.html`，检查 `<script>` 和 `<link>` 的 `src/href` 是否带正确前缀 |
+| **原因** | 仓库是 `<username>.github.io`（用户级站点），但 `baseURL` 错误地多写了一层 `"/wsgtop.github.io/"` |
+| **修复** | 改为 `baseURL: "/"` 或不设置（默认就是 `/`） |
+| **为什么 MIME 是 text/css** | 路径不存在时 GitHub Pages 返回默认错误页/ fallback CSS，浏览器拿到 CSS 却当 JS 模块加载，就报类型不匹配 |
+
+---
+
+#### 形态 B：项目级站点少写了前缀
+DevTools → Network 中请求的资源路径**没有前缀**：
+```
+❌ https://user.github.io/_nuxt/entry.abc.js  (404)
+✅ 正确的是 https://user.github.io/my-blog/_nuxt/entry.abc.js
+```
+
+| 项 | 说明 |
+|----|------|
+| **原因** | 普通仓库（如 `my-blog`）部署为项目级 Pages，但忘记在 `baseURL` 加 `/<repo>/` 前缀 |
+| **修复** | 设为 `baseURL: "/my-blog/"`（注意两端斜杠不能少） |
+
+---
+
+**统一验证命令**（改完 baseURL 必跑）：
+```bash
+npm run generate:github
+# 然后打开 dist/index.html，查看 <script> 和 <link> 的 src/href
+#   用户级站点 → 应为 /_nuxt/xxx
+#   项目级站点 → 应为 /my-blog/_nuxt/xxx
+```
 
 ---
 
@@ -502,7 +553,7 @@ logs
 - [ ] Settings → Pages → Source 是否为 **GitHub Actions**？
 - [ ] `deploy.yml` 的 `node-version` 是否 >= 22？
 - [ ] 构建命令是否使用 `npm run generate:github`（而非裸 `nuxt generate`）？
-- [ ] `nuxt.config.ts` 的 `baseURL` 是否包含正确的前缀且两端有斜杠？
+- [ ] `nuxt.config.ts` 的 `baseURL` 是否与站点类型匹配？<br>　　· 用户级（仓库名 `.github.io` 结尾）→ `"/"` 或不设置<br>　　· 项目级（普通仓库）→ `"/<repo>/"`（两端斜杠）
 - [ ] `upload-pages-artifact` 的 path 是否为 `./dist`？
 - [ ] `on.push.branches` 是否与实际推送分支一致？
 - [ ] 本地先跑过 `npm run generate:github && npm run preview` 验证过？

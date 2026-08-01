@@ -66,7 +66,11 @@ export default defineNuxtConfig({
         },
       ],
     },
-    baseURL: "/wsgtop.github.io/",
+    // ⚠️  仓库名是 <username>.github.io（用户级 Pages 站点），
+    //     部署后的 URL 是 https://wsgtop.github.io/，没有任何路径前缀，
+    //     所以 baseURL 必须留空或设为 "/"，绝不能写成 "/wsgtop.github.io/"！
+    //     只有普通项目级站点（仓库名非 .github.io 结尾）才需要加 "/<repo>/" 前缀。
+    baseURL: "/",
   },
   runtimeConfig: {
     public: {
