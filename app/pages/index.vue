@@ -1,8 +1,12 @@
 <template>
   <div class="page-root px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-14">
-    <div class="mx-auto max-w-3xl">
+    <!-- A1 通栏纸张：把 Hero 和 最新文章 包在同一张连续纸里，上下无缝隙
+         手机端不加分层（无留白可区分），≥ md 开始出现白纸背景 + 左右边 + 阴影 -->
+    <div class="mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl
+                px-3 sm:px-4 md:px-8 lg:px-10
+                md:bg-bg-elevated md:border md:border-border-default md:rounded-md md:shadow-md md:my-6">
       <!-- Hero 区 -->
-      <section class="relative text-center mb-12 sm:mb-16 lg:mb-20">
+      <section class="relative text-center mb-12 sm:mb-16 lg:mb-20 pt-6 sm:pt-8 lg:pt-10">
         <div class="absolute -inset-x-10 -top-10 -z-10 overflow-hidden pointer-events-none h-[350px]">
           <div class="absolute left-1/2 top-8 -translate-x-1/2 w-[500px] h-[500px] sm:w-[600px] sm:h-[600px]
                       bg-gradient-to-br from-indigo-400/20 via-violet-400/10 to-transparent
@@ -25,7 +29,7 @@
                    bg-clip-text text-transparent
                    leading-[1.1]
                    text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-          我的博客
+          个人博客
         </h1>
         <p class="mt-4 sm:mt-6 text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto
                   text-sm sm:text-base md:text-lg">
@@ -65,7 +69,7 @@
       </section>
 
       <!-- 最新文章列表区 -->
-      <section class="mx-auto max-w-3xl">
+      <section class="pb-8 sm:pb-10 lg:pb-12">
         <div class="flex items-end justify-between mb-6 sm:mb-8">
           <div>
             <h2 class="font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2 sm:gap-2.5

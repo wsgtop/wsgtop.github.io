@@ -1,8 +1,10 @@
 <template>
 <div class="page-root px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-14">
-    <div class="mx-auto max-w-3xl">
+    <div class="mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl
+                px-3 sm:px-4 md:px-8 lg:px-10 pb-8 sm:pb-10 lg:pb-12
+                md:bg-bg-elevated md:border md:border-border-default md:rounded-md md:shadow-md md:my-6">
         <!-- 分类头卡片 -->
-        <header class="mb-8 sm:mb-10 lg:mb-12">
+        <header class="pt-6 sm:pt-8 lg:pt-10 mb-8 sm:mb-10 lg:mb-12">
             <div class="blog-card p-5 sm:p-7 lg:p-8 relative overflow-hidden">
                 <div class="absolute -right-8 sm:-right-10 -top-8 sm:-top-10 w-40 sm:w-48 h-40 sm:h-48 rounded-full
                             bg-gradient-to-br from-violet-400/20 via-fuchsia-400/15 to-indigo-400/10

@@ -1,5 +1,8 @@
 <template>
-  <div class="py-6 sm:py-12 lg:py-16 max-w-3xl mx-auto px-3 sm:px-6">
+  <div class="page-root px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-14">
+    <div class="mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl
+                px-3 sm:px-4 md:px-8 lg:px-10
+                md:bg-bg-elevated md:border md:border-border-default md:rounded-md md:shadow-md md:my-6">
     <!-- Hero 头像/标题区 -->
     <header class="text-center mb-12 sm:mb-16">
       <div class="relative inline-flex mb-6 sm:mb-8">
@@ -81,7 +84,7 @@
           </span>
           <div class="min-w-0">
             <p class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500">Email</p>
-            <p class="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 truncate">hello@my-blog.dev</p>
+            <p class="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 truncate">wsgtop@163.com</p>
           </div>
         </li>
         <li class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700/50">
@@ -90,7 +93,7 @@
           </span>
           <div class="min-w-0">
             <p class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500">GitHub</p>
-            <p class="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 truncate">github.com/my-blog</p>
+            <p class="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 truncate">github.com/wsgtop</p>
           </div>
         </li>
         <li class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-md bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700/50">
@@ -111,6 +114,7 @@
         看看我的文章
         <Icon name="ph:arrow-right-bold" class="w-4 h-4 sm:w-4.5 sm:h-4.5" />
       </NuxtLink>
+    </div>
     </div>
   </div>
 </template>

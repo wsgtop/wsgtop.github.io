@@ -1,8 +1,10 @@
 <template>
   <div class="page-root px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-14">
-    <div v-if="article" class="mx-auto max-w-3xl">
+    <div v-if="article" class="mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl
+                               px-3 sm:px-4 md:px-8 lg:px-10
+                               md:bg-bg-elevated md:border md:border-border-default md:rounded-md md:shadow-md md:my-6">
       <!-- 文章头部 -->
-      <header class="mb-8 sm:mb-10 lg:mb-12">
+      <header class="pt-6 sm:pt-8 lg:pt-10 mb-8 sm:mb-10 lg:mb-12">
         <h1 class="font-serif font-bold tracking-tight text-slate-900 dark:text-slate-50
                    leading-[1.2] break-words
                    text-[1.35rem] sm:text-3xl md:text-4xl lg:text-5xl"
@@ -87,7 +89,7 @@
       </div>
 
       <!-- 底部操作区 -->
-      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-4
+      <div class="mt-8 sm:mt-10 mb-8 sm:mb-10 lg:mb-12 flex flex-col sm:flex-row items-center justify-between gap-4
                   px-4 sm:px-6 py-4 sm:py-5 rounded-md
                   bg-white/50 dark:bg-slate-900/40
                   border border-slate-200/50 dark:border-slate-800">

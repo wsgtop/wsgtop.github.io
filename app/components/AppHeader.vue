@@ -1,6 +1,6 @@
 <template>
   <header class="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-    <div class="mx-auto max-w-[1200px] px-3 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-[1200px] xl:max-w-7xl px-3 sm:px-6 lg:px-8">
       <div class="flex h-14 sm:h-16 items-center justify-between gap-2 sm:gap-4 min-w-0">
         <!-- Logo 区（始终显示：图标 + 博客标题文字，窄屏缩小字号） -->
         <NuxtLink to="/" class="flex items-center gap-1.5 sm:gap-2.5 group shrink-0" @click="closeMenu">
@@ -115,7 +115,8 @@
             <Icon v-else name="ph:moon-bold" class="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
-          <!-- 菜单按钮（始终保留，不隐藏）：窄屏进入分类/文章/关于的入口必须存在 -->
+          <!-- 菜单按钮（始终保留，不隐藏）：窄屏进入分类/文章/关于的入口必须存在
+               仅使用一个 list-bold 图标，通过旋转方向区分菜单状态，不替换图标 -->
           <button
             @click="menuOpen = !menuOpen"
             :aria-label="menuOpen ? '关闭菜单' : '打开菜单'"
@@ -125,8 +126,11 @@
                    hover:bg-slate-100 dark:hover:bg-slate-800/60
                    transition-all duration-200"
           >
-            <Icon v-if="menuOpen" name="ph:x-bold" class="w-5 h-5 sm:w-6 sm:h-6" />
-            <Icon v-else name="ph:list-bold" class="w-5 h-5 sm:w-6 sm:h-6" />
+            <Icon
+              name="ph:list-bold"
+              class="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 ease-out"
+              :class="{ 'rotate-90': menuOpen }"
+            />
           </button>
         </div>
       </div>

@@ -1,8 +1,10 @@
 <template>
     <div class="page-root px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-14">
-        <div class="mx-auto max-w-3xl">
+        <div class="mx-auto max-w-3xl lg:max-w-5xl xl:max-w-7xl
+                    px-3 sm:px-4 md:px-8 lg:px-10 pb-8 sm:pb-10 lg:pb-12
+                    md:bg-bg-elevated md:border md:border-border-default md:rounded-md md:shadow-md md:my-6">
             <!-- 页面标题 -->
-            <header class="mb-8 sm:mb-10 lg:mb-12">
+            <header class="pt-6 sm:pt-8 lg:pt-10 mb-8 sm:mb-10 lg:mb-12">
                 <h1 class="font-serif font-bold tracking-tight text-slate-900 dark:text-slate-100
                            flex items-center gap-2.5 sm:gap-3
                            text-2xl sm:text-3xl md:text-4xl">
